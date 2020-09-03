@@ -13,6 +13,7 @@ module.exports = {
     // https://github.com/pascalduez/stylelint-config-css-modules
     'stylelint-config-css-modules',
   ],
+  ignoreFiles: ['public/**/*.scss'],
   plugins: [
     // Bring in some extra rules for SCSS
     'stylelint-scss',
