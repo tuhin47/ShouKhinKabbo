@@ -826,20 +826,20 @@
             0 !== e ||
             'prev' !== n.direction
           ) ||
-            ((!m ||
-              0 !== n.currentItem ||
-              e !== n.pagingCount - 1 ||
-              'next' === n.direction) &&
-              !(e === n.currentSlide && !m) &&
-                (!!n.vars.animationLoop ||
-                  ((!n.atEnd ||
-                    0 !== n.currentSlide ||
-                    e !== a ||
-                    'next' === n.direction) &&
-                    (!n.atEnd ||
-                      n.currentSlide !== a ||
-                      0 !== e ||
-                      'next' !== n.direction))))
+          ((!m ||
+            0 !== n.currentItem ||
+            e !== n.pagingCount - 1 ||
+            'next' === n.direction) &&
+            !(e === n.currentSlide && !m) &&
+            (!!n.vars.animationLoop ||
+              ((!n.atEnd ||
+                0 !== n.currentSlide ||
+                e !== a ||
+                'next' === n.direction) &&
+                (!n.atEnd ||
+                  n.currentSlide !== a ||
+                  0 !== e ||
+                  'next' !== n.direction))))
         )
       }),
       (n.getTarget = function(e) {

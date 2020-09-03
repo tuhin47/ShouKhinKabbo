@@ -80,7 +80,3 @@ export default {}
     </div>
   </header>
 </template>
-
-<style lang="scss" module>
-@import '@design';
-</style>

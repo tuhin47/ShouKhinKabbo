@@ -1,8 +1,9 @@
 <script>
 import Header from '@components/header-bar.vue'
+import Footer from '@components/footer-bar.vue'
 
 export default {
-  components: { Header },
+  components: { Header, Footer },
 }
 </script>
 
@@ -10,5 +11,6 @@ export default {
   <div>
     <Header />
     <slot />
+    <Footer />
   </div>
 </template>
