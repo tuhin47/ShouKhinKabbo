@@ -1,24 +1,14 @@
 <script>
-import NavBar from '@components/nav-bar.vue'
+// import NavBar from '@components/nav-bar.vue'
 
 export default {
-  components: { NavBar },
+  // components: { NavBar },
 }
 </script>
 
 <template>
-  <div :class="$style.container">
-    <NavBar />
+  <div>
+    <!-- <NavBar /> -->
     <slot />
   </div>
 </template>
-
-<style lang="scss" module>
-@import '@design';
-
-.container {
-  min-width: $size-content-width-min;
-  max-width: $size-content-width-max;
-  margin: 0 auto;
-}
-</style>
