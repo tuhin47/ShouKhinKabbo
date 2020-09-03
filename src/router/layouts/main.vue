@@ -1,14 +1,14 @@
 <script>
-// import NavBar from '@components/nav-bar.vue'
+import Header from '@components/header-bar.vue'
 
 export default {
-  // components: { NavBar },
+  components: { Header },
 }
 </script>
 
 <template>
   <div>
-    <!-- <NavBar /> -->
+    <Header />
     <slot />
   </div>
 </template>
