@@ -16,16 +16,13 @@ export default {
     <!-- Search -->
     <SearchBar />
     <!-- Right TOP BAR -->
-    <!-- <div class="user"
-      ><a href="#"
+    <div class="user"
+      ><a href="https://m.me/shoukhinkabbo" target="_blank"
         ><div
           ><img
-            src="images/user.svg"
-            alt="https://www.flaticon.com/authors/freepik"
-          /><div>1</div></div
-        ></a
-      ></div
-    > -->
+            src="images/messenger.svg"
+            alt="https://www.flaticon.com/authors/freepik"/></div></a
+    ></div>
     <div class="user"
       ><a :href="`tel:${appConfig.mobile}`"
         ><div
