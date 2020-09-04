@@ -1,7 +1,11 @@
 <script>
+import appConfig from '@src/app.config'
 import SearchBar from './search-bar.vue'
 export default {
   components: { SearchBar },
+  data() {
+    return { appConfig }
+  },
 }
 </script>
 
@@ -37,12 +41,12 @@ export default {
       class="header_phone d-flex flex-row align-items-center justify-content-start"
     >
       <div
-        ><div
-          ><img
-            src="images/phone.svg"
-            alt="https://www.flaticon.com/authors/freepik"/></div
+        ><div>
+          <a :href="`tel:${appConfig.mobile}`"
+            ><img
+              src="images/phone.svg"
+              alt="https://www.flaticon.com/authors/freepik"/></a></div
       ></div>
-      <div>+1 912-252-7350</div>
     </div>
   </div>
 </template>
