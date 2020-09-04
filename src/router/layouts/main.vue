@@ -10,6 +10,8 @@ export default {
 <template>
   <div>
     <Header />
+    <!-- <div class="fb-customerchat" page_id="422328781181196"> FACEBOOK</div> -->
+
     <slot />
     <Footer />
   </div>

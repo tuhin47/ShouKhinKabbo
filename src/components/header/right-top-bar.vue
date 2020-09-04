@@ -16,8 +16,7 @@ export default {
     <!-- Search -->
     <SearchBar />
     <!-- Right TOP BAR -->
-    <!-- User
-    <div class="user"
+    <!-- <div class="user"
       ><a href="#"
         ><div
           ><img
@@ -26,28 +25,21 @@ export default {
           /><div>1</div></div
         ></a
       ></div
-    >-->
-    <!-- Cart -->
-    <div class="cart"
-      ><a href="cart.html"
+    > -->
+    <div class="user"
+      ><a :href="`tel:${appConfig.mobile}`"
         ><div
           ><img
-            class="svg"
+            src="images/phone.svg"
+            alt="https://www.flaticon.com/authors/freepik"/></div></a
+    ></div>
+    <div class="user"
+      ><a href="#"
+        ><div
+          ><img
             src="images/cart.svg"
             alt="https://www.flaticon.com/authors/freepik"/></div></a
     ></div>
-    <!-- Phone -->
-    <div
-      class="header_phone d-flex flex-row align-items-center justify-content-start"
-    >
-      <div
-        ><div>
-          <a :href="`tel:${appConfig.mobile}`"
-            ><img
-              src="images/phone.svg"
-              alt="https://www.flaticon.com/authors/freepik"/></a></div
-      ></div>
-    </div>
   </div>
 </template>
 
