@@ -1,5 +1,12 @@
 <script>
-export default {}
+import appConfig from '@src/app.config'
+export default {
+  data() {
+    return {
+      appConfig,
+    }
+  },
+}
 </script>
 
 <template>
@@ -19,16 +26,12 @@ export default {}
                     <div class="footer_logo_icon"
                       ><img src="images/logo_2.png" alt=""
                     /></div>
-                    <div>Little Closet</div>
+                    <div>{{ appConfig.title }}</div>
                   </div>
                 </a>
               </div>
               <div class="footer_about_text">
-                <p
-                  >Orci varius natoque penatibus et magnis dis parturient
-                  montes, nascetur ridiculus mus. Suspendisse potenti. Fusce
-                  venenatis vel velit vel euismod.</p
-                >
+                <p>{{ appConfig.description }}</p>
               </div>
             </div>
           </div>

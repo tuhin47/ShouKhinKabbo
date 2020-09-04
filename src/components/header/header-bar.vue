@@ -1,10 +1,16 @@
 <script>
+import appConfig from '@src/app.config'
 import RightTopBar from './right-top-bar.vue'
 import NavItems from './main-nav-items.vue'
 export default {
   components: {
     NavItems,
     RightTopBar,
+  },
+  data() {
+    return {
+      appConfig,
+    }
   },
   methods: {
     toggleMenuBar() {
@@ -25,7 +31,7 @@ export default {
         <a href="#">
           <div class="d-flex flex-row align-items-center justify-content-start">
             <div><img src="images/logo_1.png" alt=""/></div>
-            <div>Little Closet</div>
+            <div>{{ appConfig.title }}</div>
           </div>
         </a>
       </div>
