@@ -22,7 +22,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('menus', ['getMenuBars']),
+    ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
   },
 }
 </script>

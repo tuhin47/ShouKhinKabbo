@@ -1,4 +1,5 @@
 <script>
+import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
 import Layout from '@layouts/main.vue'
 import ProductItems from '@components/product/product-items.vue'
@@ -10,13 +11,31 @@ export default {
     meta: [{ name: 'description', content: appConfig.description }],
   },
   components: { Layout, ProductItems, TrendBoxes },
+  computed: {
+    ...mapGetters('menus', [
+      'getMenuStateClass',
+      'getMenuState',
+      'getMenuBars',
+    ]),
+  },
+  methods: {
+    clickedOutSide() {
+      if (this.getMenuState) {
+        this.$store.dispatch('menus/togglemenu')
+      }
+    },
+  },
 }
 </script>
 
 <template>
   <Layout>
     <div class="super_container">
-      <div class="super_container_inner">
+      <div
+        tabindex="0"
+        :class="'super_container_inner' + getMenuStateClass"
+        @focus="clickedOutSide"
+      >
         <div class="super_overlay"></div>
 
         <!-- Home -->

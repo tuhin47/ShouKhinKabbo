@@ -1,4 +1,5 @@
 <script>
+import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
 import RightTopBar from './right-top-bar.vue'
 import NavItems from './main-nav-items.vue'
@@ -12,6 +13,9 @@ export default {
       appConfig,
     }
   },
+  computed: {
+    ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
+  },
   methods: {
     toggleMenuBar() {
       this.$store.dispatch('menus/togglemenu')
@@ -22,7 +26,7 @@ export default {
 
 <template>
   <!-- Header -->
-  <header class="header">
+  <header :class="'header' + getMenuStateClass">
     <div class="header_overlay"></div>
     <div
       class="header_content d-flex flex-row align-items-center justify-content-start"
