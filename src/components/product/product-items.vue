@@ -1,4 +1,5 @@
 <script>
+import { mapGetters } from 'vuex'
 import Product from './base-product.vue'
 export default {
   components: {
@@ -6,6 +7,9 @@ export default {
   },
   data() {
     return {
+      activeMenu: {
+        serial: 1,
+      },
       products: [
         {
           id: 1,
@@ -17,6 +21,9 @@ export default {
       ],
     }
   },
+  computed: {
+    ...mapGetters('menus', ['getMenuBars']),
+  },
 }
 </script>
 
@@ -25,7 +32,7 @@ export default {
     <div class="container">
       <div class="row">
         <div class="col-lg-6 offset-lg-3">
-          <div class="section_title text-center">Popular on Little Closet</div>
+          <div class="section_title text-center">আমাদের পণ্য</div>
         </div>
       </div>
       <div class="row page_nav_row">
@@ -34,10 +41,13 @@ export default {
             <ul
               class="d-flex flex-row align-items-start justify-content-center"
             >
-              <li class="active"><a href="category.html">Women</a></li>
-              <li><a href="category.html">Men</a></li>
-              <li><a href="category.html">Kids</a></li>
-              <li><a href="category.html">Home Deco</a></li>
+              <li
+                v-for="(menu, index) in getMenuBars"
+                :key="index"
+                style="font-size: x-large"
+                :class="{ active: menu.serial === activeMenu.serial }"
+                ><a href="#">{{ menu.title }}</a></li
+              >
             </ul>
           </div>
         </div>
@@ -57,6 +67,11 @@ export default {
   </div>
 </template>
 
-<style lang="scss" module>
-@import '@design';
+<style lang="scss" scoped>
+@media screen and (max-width: 700px) {
+  /* stylelint-disable */
+  .page_nav ul li:not(:last-of-type)::after {
+    display: contents;
+  }
+}
 </style>

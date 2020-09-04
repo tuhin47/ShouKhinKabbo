@@ -16,13 +16,13 @@ export default {
     <!-- Search -->
     <SearchBar />
     <!-- Right TOP BAR -->
-    <div class="user"
+    <!-- <div class="user"
       ><a href="https://m.me/shoukhinkabbo" target="_blank"
         ><div
           ><img
             src="images/messenger.svg"
             alt="https://www.flaticon.com/authors/freepik"/></div></a
-    ></div>
+    ></div> -->
     <div class="user"
       ><a :href="`tel:${appConfig.mobile}`"
         ><div

@@ -1,10 +1,14 @@
 <script>
+import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
 export default {
   data() {
     return {
       appConfig,
     }
+  },
+  computed: {
+    ...mapGetters('menus', ['getMenuBars']),
   },
 }
 </script>
@@ -134,10 +138,9 @@ export default {
                 <ul
                   class="d-flex flex-row align-items-center justify-content-start"
                 >
-                  <li><a href="category.html">Women</a></li>
-                  <li><a href="category.html">Men</a></li>
-                  <li><a href="category.html">Kids</a></li>
-                  <li><a href="category.html">Home Deco</a></li>
+                  <li v-for="(menu, index) in getMenuBars" :key="index"
+                    ><a href="#">{{ menu.title }}</a></li
+                  >
                   <li><a href="#">Contact</a></li>
                 </ul>
               </nav>
