@@ -1,13 +1,13 @@
 <script>
 import appConfig from '@src/app.config'
 import Layout from '@layouts/main.vue'
-import HomeSlider from '@components/home-slider.vue'
+// import HomeSlider from '@components/home-slider.vue'
 export default {
   page: {
     title: 'Home',
     meta: [{ name: 'description', content: appConfig.description }],
   },
-  components: { Layout, HomeSlider },
+  components: { Layout },
 }
 </script>
 
@@ -18,7 +18,7 @@ export default {
         <div class="super_overlay"></div>
 
         <!-- Home -->
-        <HomeSlider />
+        <!-- <HomeSlider /> -->
         <!-- Products -->
 
         <div class="products">

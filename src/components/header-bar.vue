@@ -1,5 +1,11 @@
 <script>
-export default {}
+export default {
+  methods: {
+    toggleMenuBar() {
+      this.$store.dispatch('menus/togglemenu')
+    },
+  },
+}
 </script>
 
 <template>
@@ -17,7 +23,9 @@ export default {}
           </div>
         </a>
       </div>
-      <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
+      <div class="hamburger"
+        ><i class="fa fa-bars" aria-hidden="true" @click="toggleMenuBar"></i
+      ></div>
       <nav class="main_nav">
         <ul class="d-flex flex-row align-items-start justify-content-start">
           <li class="active"><a href="#">Women</a></li>
