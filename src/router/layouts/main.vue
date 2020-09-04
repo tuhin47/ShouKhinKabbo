@@ -1,5 +1,5 @@
 <script>
-import Header from '@components/header-bar.vue'
+import Header from '@components/header/header-bar.vue'
 import Footer from '@components/footer-bar.vue'
 
 export default {
