@@ -1,5 +1,5 @@
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapGetters } from 'vuex'
 import Product from './base-product.vue'
 export default {
   components: {
@@ -10,18 +10,10 @@ export default {
       activeMenu: {
         serial: 1,
       },
-      products: [
-        {
-          id: 1,
-          image_url:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png',
-          details: 'joss phn',
-          price: '50',
-        },
-      ],
     }
   },
   computed: {
+    ...mapState('products', ['products']),
     ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
   },
 }
@@ -54,7 +46,11 @@ export default {
       </div>
       <div class="row products_row">
         <!-- Product -->
-        <Product v-for="index in 9" :key="index" :product="products[0]" />
+        <Product
+          v-for="(product, index) in products"
+          :key="index"
+          :product="product"
+        />
       </div>
       <div class="row load_more_row">
         <div class="col">

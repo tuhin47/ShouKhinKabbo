@@ -16,7 +16,7 @@
 $(document).ready(function() {
   'use strict'
 
-  /* 
+  /*
 
 	1. Vars and Inits
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
     setHeader()
   })
 
-  /* 
+  /*
 
 	2. Set Header
 
@@ -52,7 +52,7 @@ $(document).ready(function() {
     }
   }
 
-  /* 
+  /*
 
 	3. Init Menu
 
@@ -95,7 +95,7 @@ $(document).ready(function() {
     }
   }
 
-  /* 
+  /*
 
 	4. Init SVG
 
@@ -136,7 +136,7 @@ $(document).ready(function() {
     }
   }
 
-  /* 
+  /*
 
 	5. Init Product Slider
 
@@ -158,7 +158,6 @@ $(document).ready(function() {
       animationSpeed: 300,
       after: function(slider) {
         var i = slider.currentSlide
-        console.log(i)
         if (i === 0) {
           prev.addClass('disabled')
         } else {
