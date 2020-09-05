@@ -13,6 +13,11 @@ export default {
       return this.productsAdded.length
     },
   },
+  methods: {
+    showCheckoutModal() {
+      this.$store.commit('products/showCheckoutModal', true)
+    },
+  },
 }
 </script>
 
@@ -37,7 +42,7 @@ export default {
             src="images/phone.svg"
             alt="https://www.flaticon.com/authors/freepik"/></div></a
     ></div>
-    <div class="user"
+    <div class="user" @click="showCheckoutModal"
       ><a href="#"
         ><div
           ><img
