@@ -68,10 +68,19 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+/* stylelint-disable */
 @media screen and (max-width: 700px) {
-  /* stylelint-disable */
   .page_nav ul li:not(:last-of-type)::after {
     display: contents;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .col {
+    display: none;
+  }
+  .page_nav_row {
+    margin-top: 0px;
   }
 }
 </style>
