@@ -31,27 +31,23 @@ export default {
             <!-- <div class="rating_r rating_r_4 home_item_rating"
               ><i></i><i></i><i></i><i></i><i></i
             ></div> -->
-            <div class="product_price text-right"
+            <div class="product_price text-right" style="line-height: 0;"
               >{{ product.price }}<span>টাকা</span></div
             >
           </div>
         </div>
         <div class="product_buttons">
           <div
-            class="text-right d-flex flex-row align-items-start justify-content-start"
+            class="text-right d-flex flex-row align-items-end justify-content-end"
           >
+            <select style="margin: 12px 31px;" class="col-md-2 custom-select">
+              <option selected value="0">0</option>
+              <option v-for="index in 6" :key="index" :value="index">{{
+                index
+              }}</option>
+            </select>
             <div
-              class="product_button product_fav text-center d-flex flex-column align-items-center justify-content-center"
-            >
-              <div
-                ><div
-                  ><img src="images/heart_2.svg" class="svg" alt="" /><div
-                    >+</div
-                  ></div
-                ></div
-              >
-            </div>
-            <div
+              style="border-top: 0"
               class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
             >
               <div
