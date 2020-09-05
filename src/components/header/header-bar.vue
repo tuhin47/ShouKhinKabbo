@@ -34,8 +34,14 @@ export default {
       <div class="logo">
         <a href="#">
           <div class="d-flex flex-row align-items-center justify-content-start">
-            <div><img src="images/logo_1.png" alt=""/></div>
-            <div>{{ appConfig.title }}</div>
+            <div
+              ><img
+                width="30"
+                class="rounded-circle"
+                src="images/logo.png"
+                alt="logo"
+            /></div>
+            <div style="padding-left: 5px;"> {{ appConfig.title }}</div>
           </div>
         </a>
       </div>

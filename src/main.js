@@ -1,4 +1,7 @@
+import '@babel/polyfill'
+import 'mutationobserver-shim'
 import Vue from 'vue'
+import './plugins/bootstrap-vue'
 import router from '@router'
 import store from '@state/store'
 import VueFbCustomerChat from 'vue-fb-customer-chat'
@@ -15,7 +18,7 @@ if (process.env.VUE_APP_TEST === 'e2e') {
 }
 
 Vue.use(VueFbCustomerChat, {
-  page_id: 422328781181196, //  change 'null' to your Facebook Page ID,
+  page_id: 100529931400034, //  change 'null' to your Facebook Page ID,
   theme_color: '#333333', // theme color in HEX
   locale: 'en_US', // default 'en_US'
   logged_in_greeting: 'Welcome to Gang',
