@@ -1,10 +1,17 @@
 <script>
 import appConfig from '@src/app.config'
+import { mapGetters } from 'vuex'
 import SearchBar from './search-bar.vue'
 export default {
   components: { SearchBar },
   data() {
     return { appConfig }
+  },
+  computed: {
+    ...mapGetters('products', ['productsAdded']),
+    productsAddedLenght() {
+      return this.productsAdded.length
+    },
   },
 }
 </script>
@@ -35,8 +42,11 @@ export default {
         ><div
           ><img
             src="images/cart.svg"
-            alt="https://www.flaticon.com/authors/freepik"/></div></a
-    ></div>
+            alt="https://www.flaticon.com/authors/freepik"
+          /><div>{{ productsAddedLenght ? productsAddedLenght : 0 }}</div></div
+        ></a
+      ></div
+    >
   </div>
 </template>
 
