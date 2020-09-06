@@ -43,6 +43,12 @@ export default {
       if (this.product.isAddedToCart) this.removeFromCart(this.product.id)
       else this.addToCart(this.product.id)
     },
+    changeQuantity(quantity, item) {
+      this.$store.commit('products/quantity', {
+        id: item.id,
+        quantity: quantity.target.value,
+      })
+    },
     addToCart(id) {
       const data = {
         id: id,
@@ -122,9 +128,10 @@ export default {
           >
             <select
               v-if="!product.isAddedToCart"
-              v-model="product.quantity"
+              :value="product.quantity"
               style="margin: 12px 31px;"
               class="col-md-2 custom-select"
+              @change="changeQuantity($event, product)"
             >
               <option v-for="index in 6" :key="index" :value="index">{{
                 index

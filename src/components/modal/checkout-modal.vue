@@ -22,8 +22,9 @@
             <b-col cols="2">{{ product.price }}</b-col>
             <b-col cols="3">
               <b-form-select
-                v-model="product.quantity"
+                :value="product.quantity"
                 :options="[1, 2, 3, 4, 5, 6]"
+                @change="changeQuantity($event, product)"
               ></b-form-select>
             </b-col>
             <b-col cols="1"></b-col>
@@ -57,7 +58,7 @@
           variant="danger"
           size="sm"
           class="float-right"
-          @click="openModal = false"
+          @click="clearSelectedCharts"
         >
           Clear
         </b-button>
@@ -135,7 +136,7 @@ export default {
 
       if (totalProducts > 1) {
         // set plural or singular
-        productLabel = 'products'
+        productLabel = 'types of products'
       } else {
         productLabel = 'product'
       }
@@ -153,6 +154,15 @@ export default {
       if (reloadPage) {
         window.location.reload()
       }
+    },
+    clearSelectedCharts() {
+      this.$store.commit('products/clearSelectedCharts')
+    },
+    changeQuantity(quantity, item) {
+      this.$store.commit('products/quantity', {
+        id: item.id,
+        quantity: quantity,
+      })
     },
     removeFromCart(id) {
       const data = {

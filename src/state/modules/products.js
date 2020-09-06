@@ -108,6 +108,11 @@ export const mutations = {
       }
     })
   },
+  clearSelectedCharts(state) {
+    state.products.forEach((el) => {
+      el.isAddedToCart = false
+    })
+  },
   SET_PRODUCTS(state, products) {
     state.products = products
   },
