@@ -8,7 +8,10 @@ import modules from './modules'
 
 Vue.use(Vuex)
 
-const minutes = new Date(new Date().getTime() + (1 * 60 * 1000) / 3)
+const minutes =
+  process.env.NODE_ENV !== 'production'
+    ? new Date(new Date().getTime() + (1 * 60 * 1000) / 3)
+    : new Date(new Date().getTime() + 60 * 60 * 1000)
 const store = new Vuex.Store({
   modules,
   /* eslint-disable */
