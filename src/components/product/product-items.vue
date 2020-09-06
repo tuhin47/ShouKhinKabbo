@@ -7,14 +7,37 @@ export default {
   },
   data() {
     return {
+      INITIAL_PRODUCTS: 12,
       activeMenu: {
         serial: 1,
       },
+      load: 0,
+      loadButton: true,
+      viewProducts: [],
     }
   },
   computed: {
     ...mapState('products', ['products']),
     ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
+  },
+  mounted() {
+    this.getViewProducts()
+  },
+  methods: {
+    loadMore() {
+      this.load = this.load + 1
+      this.getViewProducts()
+    },
+    getViewProducts() {
+      const count = this.products.length
+      const items = this.INITIAL_PRODUCTS + this.load * 6
+      if (items < count) {
+        this.viewProducts = this.products.slice(0, items)
+      } else {
+        this.loadButton = false
+        this.viewProducts = this.products.slice(0, count)
+      }
+    },
   },
 }
 </script>
@@ -47,15 +70,15 @@ export default {
       <div class="row products_row">
         <!-- Product -->
         <Product
-          v-for="(product, index) in products"
+          v-for="(product, index) in viewProducts"
           :key="index"
           :product="product"
         />
       </div>
-      <div class="row load_more_row">
+      <div v-show="loadButton" class="row load_more_row">
         <div class="col">
           <div class="button load_more ml-auto mr-auto"
-            ><a href="#">load more</a></div
+            ><a @click="loadMore">load more</a></div
           >
         </div>
       </div>
