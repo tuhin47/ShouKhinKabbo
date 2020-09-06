@@ -28,7 +28,7 @@ export default {
                     class="d-flex flex-row align-items-center justify-content-start"
                   >
                     <div class="footer_logo_icon"
-                      ><img src="images/logo_2.png" alt=""
+                      ><img width="60" src="images/logo.png" alt=""
                     /></div>
                     <div>{{ appConfig.title }}</div>
                   </div>
@@ -40,46 +40,9 @@ export default {
             </div>
           </div>
 
-          <!-- Footer Links -->
           <div class="col-lg-4 footer_col">
             <div class="footer_menu">
-              <div class="footer_title">Support</div>
-              <ul class="footer_list">
-                <li>
-                  <a href="#"
-                    ><div
-                      >Customer Service<div class="footer_tag_1"
-                        >online now</div
-                      ></div
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="#"><div>Return Policy</div></a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><div
-                      >Size Guide<div class="footer_tag_2"
-                        >recommended</div
-                      ></div
-                    ></a
-                  >
-                </li>
-                <li>
-                  <a href="#"><div>Terms and Conditions</div></a>
-                </li>
-                <li>
-                  <a href="#"><div>Contact</div></a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Footer Contact -->
-          <div class="col-lg-4 footer_col">
-            <div class="footer_contact">
-              <div class="footer_title">Stay in Touch</div>
+              <!-- <div class="footer_title">Stay in Touch</div>
               <div class="newsletter">
                 <form id="newsletter_form" action="#" class="newsletter_form">
                   <input
@@ -90,8 +53,8 @@ export default {
                   />
                   <button class="newsletter_button">+</button>
                 </form>
-              </div>
-              <div class="footer_social">
+              </div> -->
+              <div>
                 <div class="footer_title">Social</div>
                 <ul
                   class="footer_social_list d-flex flex-row align-items-start justify-content-start"
@@ -116,6 +79,42 @@ export default {
               </div>
             </div>
           </div>
+
+          <!-- Footer Links -->
+          <div class="col-lg-4 footer_col">
+            <div class="footer_menu">
+              <div class="footer_title">সহযোগিতা</div>
+              <ul class="footer_list">
+                <li>
+                  <a
+                    href="https://www.facebook.com/shoukhinkabbo"
+                    target="_blank"
+                    ><div
+                      >facebook page<div class="footer_tag_1">now</div></div
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a href="#policy"><div>Policy</div></a>
+                </li>
+                <li>
+                  <a href="#guide"
+                    ><div
+                      >Guide<div class="footer_tag_2">recommended</div></div
+                    ></a
+                  >
+                </li>
+                <li>
+                  <a href="#terms"><div>Terms and Conditions</div></a>
+                </li>
+                <li>
+                  <a href="#contact"><div>Contact</div></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Footer Contact -->
         </div>
       </div>
     </div>
@@ -129,9 +128,12 @@ export default {
               <div class="copyright order-md-1 order-2"
                 ><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;{{ new Date().getFullYear() }}
-                All rights reserved | This template is made with
                 <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <a
+                  href="https://www.facebook.com/shoukhinkabbo/"
+                  target="_blank"
+                  >{{ appConfig.title }}</a
+                >
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div
               >
               <nav class="footer_nav ml-md-auto order-md-2 order-1">

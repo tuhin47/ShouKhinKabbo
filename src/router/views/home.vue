@@ -3,14 +3,18 @@ import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
 import Layout from '@layouts/main.vue'
 import ProductItems from '@components/product/product-items.vue'
-import TrendBoxes from '@components/trend/trend-boxes.vue'
+// import TrendBoxes from '@components/trend/trend-boxes.vue'
 // import HomeSlider from '@components/home-slider.vue'
 export default {
   page: {
     title: 'Home',
     meta: [{ name: 'description', content: appConfig.description }],
   },
-  components: { Layout, ProductItems, TrendBoxes },
+  components: {
+    Layout,
+    ProductItems,
+    // TrendBoxes
+  },
   computed: {
     ...mapGetters('menus', [
       'getMenuStateClass',
@@ -45,14 +49,13 @@ export default {
         <ProductItems />
 
         <!-- Boxes -->
-        <TrendBoxes />
+        <!-- <TrendBoxes /> -->
 
         <!-- Features -->
 
-        <div class="features">
+        <!-- <div class="features">
           <div class="container">
             <div class="row">
-              <!-- Feature -->
               <div class="col-lg-4 feature_col">
                 <div
                   class="feature d-flex flex-row align-items-start justify-content-start"
@@ -69,8 +72,6 @@ export default {
                   </div>
                 </div>
               </div>
-
-              <!-- Feature -->
               <div class="col-lg-4 feature_col">
                 <div
                   class="feature d-flex flex-row align-items-start justify-content-start"
@@ -88,7 +89,6 @@ export default {
                 </div>
               </div>
 
-              <!-- Feature -->
               <div class="col-lg-4 feature_col">
                 <div
                   class="feature d-flex flex-row align-items-start justify-content-start"
@@ -107,7 +107,7 @@ export default {
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </Layout>

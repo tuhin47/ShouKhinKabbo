@@ -1,9 +1,9 @@
 <script>
 import appConfig from '@src/app.config'
 import { mapGetters } from 'vuex'
-import SearchBar from './search-bar.vue'
+// import SearchBar from './search-bar.vue'
 export default {
-  components: { SearchBar },
+  // components: { SearchBar },
   data() {
     return { appConfig }
   },
@@ -26,7 +26,7 @@ export default {
     class="header_right d-flex flex-row align-items-center justify-content-start ml-auto"
   >
     <!-- Search -->
-    <SearchBar />
+    <!-- <SearchBar /> -->
     <!-- Right TOP BAR -->
     <!-- <div class="user"
       ><a href="https://m.me/shoukhinkabbo" target="_blank"
