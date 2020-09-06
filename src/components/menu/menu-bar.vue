@@ -1,17 +1,13 @@
 <script>
 import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
-import { db } from '@src/services/db.js'
 
 export default {
   data() {
-    return { appConfig, ToDos: [] }
+    return { appConfig }
   },
   computed: {
     ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
-  },
-  firestore: {
-    ToDos: db.collection('ToDos'),
   },
 }
 </script>

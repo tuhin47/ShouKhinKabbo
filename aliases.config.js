@@ -14,6 +14,7 @@ const aliases = {
   '@state': 'src/state',
   '@design': 'src/design/index.scss',
   '@public': 'public',
+  '@services': 'src/services',
 }
 
 module.exports = {

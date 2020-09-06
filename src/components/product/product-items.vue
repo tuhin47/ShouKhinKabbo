@@ -1,6 +1,7 @@
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import Product from './base-product.vue'
+
 export default {
   components: {
     Product,
@@ -17,26 +18,29 @@ export default {
     }
   },
   computed: {
-    ...mapState('products', ['products']),
     ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
   },
-  mounted() {
-    this.getViewProducts()
+  async mounted() {
+    this.viewProducts = await this.getViewProducts()
   },
   methods: {
+    ...mapActions({
+      getProducts: 'products/getProducts',
+    }),
+    async getViewProducts() {
+      const products = await this.getProducts()
+      const count = products.length
+      const items = this.INITIAL_PRODUCTS + this.load * 6
+      if (items < count) {
+        return products.slice(0, items)
+      } else {
+        this.loadButton = false
+        return products.slice(0, count)
+      }
+    },
     loadMore() {
       this.load = this.load + 1
       this.getViewProducts()
-    },
-    getViewProducts() {
-      const count = this.products.length
-      const items = this.INITIAL_PRODUCTS + this.load * 6
-      if (items < count) {
-        this.viewProducts = this.products.slice(0, items)
-      } else {
-        this.loadButton = false
-        this.viewProducts = this.products.slice(0, count)
-      }
     },
   },
 }

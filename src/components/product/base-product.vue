@@ -100,11 +100,11 @@ export default {
           <div>
             <div>
               <div class="product_name"
-                ><a href="product.html">{{ product.title }}</a></div
+                ><a>{{ product.title }}</a></div
               >
-              <div class="product_category"
-                >In <a href="category.html">Category</a></div
-              >
+              <div class="product_category">
+                <!-- In <a href="category.html">Category</a> -->
+              </div>
             </div>
           </div>
           <div class="ml-auto text-right">
