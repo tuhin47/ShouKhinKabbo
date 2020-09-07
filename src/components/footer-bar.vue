@@ -28,7 +28,7 @@ export default {
                     class="d-flex flex-row align-items-center justify-content-start"
                   >
                     <div class="footer_logo_icon"
-                      ><img width="60" src="images/logo.png" alt=""
+                      ><img width="60" src="@public/images/logo.png" alt=""
                     /></div>
                     <div>{{ appConfig.title }}</div>
                   </div>

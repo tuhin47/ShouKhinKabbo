@@ -41,7 +41,7 @@ export default {
               ><img
                 width="30"
                 class="rounded-circle"
-                src="images/logo.png"
+                src="@public/images/logo.png"
                 alt="logo"
             /></div>
             <div style="padding-left: 5px;"> {{ appConfig.title }}</div>

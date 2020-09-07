@@ -1,10 +1,20 @@
 import store from '@state/store'
-
+import ProductDetails from '@views/ProductDetails.vue'
 export default [
   {
     path: '/',
     name: 'home',
     component: () => lazyLoadView(import('@views/home.vue')),
+  },
+  {
+    path: '/product',
+    name: 'ProductDetails',
+    component: () => lazyLoadView(import('@views/ProductDetails.vue')),
+  },
+  {
+    path: '/product/:key',
+    name: 'details-product',
+    component: ProductDetails,
   },
   {
     path: '/login',

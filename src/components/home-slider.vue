@@ -30,7 +30,7 @@ export default {}
                         <div class="col-sm-3 offset-lg-1">
                           <div class="home_item_side"
                             ><a href="product.html"
-                              ><img src="images/home_1.jpg" alt=""/></a
+                              ><img src="@public/images/home_1.jpg" alt=""/></a
                           ></div>
                         </div>
                         <div
@@ -46,7 +46,7 @@ export default {}
                               </div>
                             </div>
                             <div class="product_image"
-                              ><img src="images/home_2.jpg" alt=""
+                              ><img src="@public/images/home_2.jpg" alt=""
                             /></div>
                             <div class="product_content">
                               <div

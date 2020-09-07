@@ -144,7 +144,7 @@ export default {
             >
               <div
                 ><div
-                  ><img src="images/cart.svg" class="svg" alt="cart" />
+                  ><img src="@public/images/cart.svg" class="svg" alt="cart" />
                   <div v-if="product.isAddedToCart" style="background:red"
                     >-</div
                   >

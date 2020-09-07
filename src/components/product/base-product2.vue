@@ -53,7 +53,7 @@
           >
             <div
               ><div
-                ><img src="images/heart_2.svg" class="svg" alt="" /><div
+                ><img src="@public/images/heart_2.svg" class="svg" alt="" /><div
                   >+</div
                 ></div
               ></div
@@ -64,7 +64,7 @@
           >
             <div
               ><div
-                ><img src="images/cart.svg" class="svg" alt="" /><div
+                ><img src="@public/images/cart.svg" class="svg" alt="" /><div
                   >+</div
                 ></div
               ></div

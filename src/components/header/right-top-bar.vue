@@ -39,14 +39,14 @@ export default {
       ><a :href="`tel:${appConfig.mobile}`"
         ><div
           ><img
-            src="images/phone.svg"
+            src="@public/images/phone.svg"
             alt="https://www.flaticon.com/authors/freepik"/></div></a
     ></div>
     <div class="user" @click="showCheckoutModal"
       ><a href="#"
         ><div
           ><img
-            src="images/cart.svg"
+            src="@public/images/cart.svg"
             alt="https://www.flaticon.com/authors/freepik"
           /><div>{{ productsAddedLenght ? productsAddedLenght : 0 }}</div></div
         ></a

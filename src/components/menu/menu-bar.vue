@@ -26,7 +26,7 @@ export default {
           required="required"
         />
         <button class="menu_search_button"
-          ><img src="images/search.png" alt=""
+          ><img src="@public/images/search.png" alt=""
         /></button>
       </form>
     </div>
@@ -49,7 +49,7 @@ export default {
         <div
           ><div
             ><img
-              src="images/phone.svg"
+              src="@public/images/phone.svg"
               alt="https://www.flaticon.com/authors/freepik"/></div
         ></div>
         <div>{{ appConfig.mobile }}</div>

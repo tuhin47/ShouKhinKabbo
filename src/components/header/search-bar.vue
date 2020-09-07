@@ -13,7 +13,7 @@ export default {}
         required="required"
       />
       <button class="header_search_button"
-        ><img src="images/search.png" alt=""
+        ><img src="@public/images/search.png" alt=""
       /></button>
     </form>
   </div>

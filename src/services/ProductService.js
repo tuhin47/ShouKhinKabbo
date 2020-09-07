@@ -5,9 +5,11 @@ export default {
       .collection('products')
       .get()
       .then((querySnapshot) => {
-        let products = querySnapshot.docs.map((doc) => doc.data())
-        products = products.map((element, index) => ({
-          id: index,
+        let products = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }))
+        products = products.map((element) => ({
           ...element,
           isAddedToCart: false,
           isAddedBtn: false,

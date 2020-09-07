@@ -42,7 +42,7 @@
           ><div
             ><img
               width="20px"
-              src="images/phone.svg"
+              src="@public/images/phone.svg"
               alt="https://www.flaticon.com/authors/freepik"/></div
         ></a>
         <strong>{{ buyLabel }}</strong>
@@ -50,7 +50,7 @@
           ><div
             ><img
               width="20px"
-              src="images/messenger.svg"
+              src="@public/images/messenger.svg"
               alt="https://www.flaticon.com/authors/freepik"/></div
         ></a>
         <b-col cols="2"></b-col>
