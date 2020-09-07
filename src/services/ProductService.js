@@ -14,6 +14,7 @@ export default {
           isAddedToCart: false,
           isAddedBtn: false,
           isFavourite: false,
+          image_url: tprocessImageUrl(element.image_url),
           quantity: 1,
         }))
         // eslint-disable-next-line
@@ -21,4 +22,14 @@ export default {
         return products
       })
   },
+}
+
+const imageFormat = 'tr:w-640,h-480'
+const tprocessImageUrl = function(url) {
+  if (url && url.includes('https://ik.imagekit.io/')) {
+    const arr = url.split('/')
+    arr.splice(4, 0, imageFormat)
+    return arr.join('/')
+  }
+  return url
 }

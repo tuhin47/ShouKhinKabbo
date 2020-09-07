@@ -158,3 +158,10 @@ export default {
     </div>
   </div>
 </template>
+
+<style type="scss" scoped>
+.product {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+</style>

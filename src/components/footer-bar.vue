@@ -35,7 +35,9 @@ export default {
                 </a>
               </div>
               <div class="footer_about_text">
-                <p>{{ appConfig.description }}</p>
+                <p
+                  ><strong>{{ appConfig.description }}</strong></p
+                >
               </div>
             </div>
           </div>
@@ -153,3 +155,10 @@ export default {
     </div>
   </footer>
 </template>
+
+<style type="scss" scoped>
+/* stylelint-disable */
+.footer_logo {
+  margin-left: 0;
+}
+</style>

@@ -2,6 +2,7 @@
 import appConfig from '@src/app.config'
 import Layout from '@layouts/main.vue'
 import ProductItems from '@components/product/product-items.vue'
+import PageTitle from '@components/page-title-bar.vue'
 // import TrendBoxes from '@components/trend/trend-boxes.vue'
 // import HomeSlider from '@components/home-slider.vue'
 //  import FeatureGroup from '@components/featues-group.vue'
@@ -13,6 +14,7 @@ export default {
   components: {
     Layout,
     ProductItems,
+    PageTitle,
     // TrendBoxes
     // FeatureGroup
   },
@@ -22,7 +24,8 @@ export default {
 <template>
   <Layout>
     <!-- Home -->
-    <!-- <HomeSlider /> -->
+
+    <PageTitle title="আমাদের পন্য" />
 
     <!-- Products -->
     <ProductItems />

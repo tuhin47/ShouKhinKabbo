@@ -49,12 +49,7 @@ export default {
 <template>
   <div class="products">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-3">
-          <div class="section_title text-center">আমাদের পণ্য</div>
-        </div>
-      </div>
-      <div class="row page_nav_row">
+      <!-- <div class="row page_nav_row">
         <div class="col">
           <div class="page_nav">
             <ul
@@ -70,7 +65,7 @@ export default {
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="row products_row">
         <!-- Product -->
         <Product
@@ -105,5 +100,10 @@ export default {
   .page_nav_row {
     margin-top: 0px;
   }
+}
+
+.products {
+  padding-top: 0;
+  padding-bottom: 0;
 }
 </style>
