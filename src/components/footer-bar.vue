@@ -15,7 +15,7 @@ export default {
 
 <template>
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer ">
     <div class="footer_content">
       <div class="container">
         <div class="row">

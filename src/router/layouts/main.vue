@@ -25,8 +25,8 @@ export default {
 
 <template>
   <div>
-    <Header />
     <div class="super_container">
+      <Header />
       <div
         tabindex="0"
         :class="'super_container_inner' + getMenuStateClass"
@@ -34,6 +34,7 @@ export default {
       >
         <div class="super_overlay"></div>
         <slot />
+        <Footer />
       </div>
     </div>
     <MenuBar />
@@ -47,6 +48,5 @@ export default {
     >
     </div> -->
     <CheckoutModal />
-    <Footer />
   </div>
 </template>

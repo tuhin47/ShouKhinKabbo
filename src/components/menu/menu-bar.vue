@@ -9,6 +9,11 @@ export default {
   computed: {
     ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
   },
+  methods: {
+    toggleMenu() {
+      this.$store.dispatch('menus/togglemenu')
+    },
+  },
 }
 </script>
 
@@ -17,7 +22,10 @@ export default {
 
   <div :class="'menu' + getMenuStateClass">
     <!-- Search -->
-    <div class="menu_search">
+    <button type="button" class="close" aria-label="Close" @click="toggleMenu">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <!-- <div class="menu_search">
       <form id="menu_search_form" action="#" class="menu_search_form">
         <input
           type="text"
@@ -29,7 +37,7 @@ export default {
           ><img src="@public/images/search.png" alt=""
         /></button>
       </form>
-    </div>
+    </div> -->
     <!-- Navigation -->
     <div class="menu_nav">
       <ul>
