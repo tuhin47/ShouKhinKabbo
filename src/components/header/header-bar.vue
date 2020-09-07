@@ -35,7 +35,7 @@ export default {
         ><i class="fa fa-bars" aria-hidden="true" @click="toggleMenuBar"></i
       ></div>
       <div class="logo">
-        <a href="#">
+        <a href="/">
           <div class="d-flex flex-row align-items-center justify-content-start">
             <div
               ><img
