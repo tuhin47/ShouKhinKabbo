@@ -37,3 +37,12 @@ export default {
     <!-- <FeatureGroup /> -->
   </Layout>
 </template>
+
+<style lang="scss" module>
+@import url('https://fonts.maateen.me/solaiman-lipi/font.css');
+
+// stylelint-disable
+body {
+  font-family: 'SolaimanLipi', Arial, sans-serif !important;
+}
+</style>

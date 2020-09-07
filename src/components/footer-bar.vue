@@ -9,6 +9,9 @@ export default {
   },
   computed: {
     ...mapGetters('menus', ['getMenuBars']),
+    version: function() {
+      return process.env.VERSION
+    },
   },
 }
 </script>
@@ -57,7 +60,7 @@ export default {
                 </form>
               </div> -->
               <div>
-                <div class="footer_title">Social</div>
+                <div class="footer_title">সামাজিক মাধ্যম</div>
                 <ul
                   class="footer_social_list d-flex flex-row align-items-start justify-content-start"
                 >
@@ -128,16 +131,15 @@ export default {
               class="footer_bar_content d-flex flex-md-row flex-column align-items-center justify-content-start"
             >
               <div class="copyright order-md-1 order-2"
-                ><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;{{ new Date().getFullYear() }}
+                >Copyright &copy;{{ new Date().getFullYear() }}
+
                 <i class="fa fa-heart-o" aria-hidden="true"></i> by
                 <a
                   href="https://www.facebook.com/shoukhinkabbo/"
                   target="_blank"
                   >{{ appConfig.title }}</a
                 >
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div
-              >
+              </div>
               <nav class="footer_nav ml-md-auto order-md-2 order-1">
                 <ul
                   class="d-flex flex-row align-items-center justify-content-start"
@@ -146,6 +148,7 @@ export default {
                     ><a href="#">{{ menu.title }}</a></li
                   >
                   <li><a href="#">Contact</a></li>
+                  <li>v@{{ version }}</li>
                 </ul>
               </nav>
             </div>

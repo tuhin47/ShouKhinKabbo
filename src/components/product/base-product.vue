@@ -105,8 +105,8 @@ export default {
         >
           <div>
             <div>
-              <div class="product_name"
-                ><a>{{ product.title }}</a></div
+              <div class="product_name productname"
+                ><a href="#">{{ product.title }}</a></div
               >
               <div class="product_category">
                 <!-- In <a href="category.html">Category</a> -->
@@ -117,12 +117,14 @@ export default {
             <!-- <div class="rating_r rating_r_4 home_item_rating"
               ><i></i><i></i><i></i><i></i><i></i
             ></div> -->
-            <div class="product_price text-right" style="line-height: 0;"
+            <div
+              class="productprice product_price text-right"
+              style="line-height: 0;"
               >{{ banglaNumeric(product.price) }}<span>টাকা</span></div
             >
           </div>
         </div>
-        <div class="product_buttons">
+        <div class="product_buttons productbuttons">
           <div
             class="text-right d-flex flex-row align-items-end justify-content-end"
           >
@@ -160,8 +162,22 @@ export default {
 </template>
 
 <style type="scss" scoped>
+/* stylint-disbale */
+a:visited {
+  color: #4a4a4a;
+  text-decoration: none;
+}
 .product {
   padding-top: 0;
   padding-bottom: 0;
+}
+.productprice {
+  font-size: 30px;
+}
+.productname a {
+  font-size: 35px;
+}
+.productbuttons {
+  margin-top: 21px;
 }
 </style>
