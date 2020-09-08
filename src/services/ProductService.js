@@ -1,26 +1,22 @@
 import { db } from './db.js'
+const productsRef = db.collection('products')
 export default {
   async index() {
-    return await db
-      .collection('products')
-      .get()
-      .then((querySnapshot) => {
-        let products = querySnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }))
-        products = products.map((element) => ({
-          ...element,
-          isAddedToCart: false,
-          isAddedBtn: false,
-          isFavourite: false,
-          image_url: tprocessImageUrl(element.image_url),
-          quantity: 1,
-        }))
-        // eslint-disable-next-line
-        console.log('called', products)
-        return products
-      })
+    return await productsRef.get().then((querySnapshot) => {
+      let products = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }))
+      products = products.map((element) => ({
+        ...element,
+        isAddedToCart: false,
+        isAddedBtn: false,
+        isFavourite: false,
+        image_url: tprocessImageUrl(element.image_url),
+        quantity: 1,
+      }))
+      return products
+    })
   },
 }
 

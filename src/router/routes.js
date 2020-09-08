@@ -1,4 +1,4 @@
-// import store from '@state/store'
+import store from '@state/store'
 // import ProductDetails from '@views/ProductDetails.vue'
 export default [
   {
@@ -6,11 +6,26 @@ export default [
     name: 'home',
     component: () => lazyLoadView(import('@views/home.vue')),
   },
-  // {
-  //   path: '/product',
-  //   name: 'ProductDetails',
-  //   component: () => lazyLoadView(import('@views/ProductDetails.vue')),
-  // },
+  {
+    path: '/product/:id',
+    name: 'ProductDetails',
+    component: () => lazyLoadView(import('@views/ProductDetails.vue')),
+    meta: {
+      tmp: {},
+      beforeResolve(routeTo, routeFrom, next) {
+        store
+          .dispatch('products/fetchProduct', { id: routeTo.params.id })
+          .then((product) => {
+            routeTo.meta.tmp.product = product
+            next()
+          })
+          .catch(() => {
+            next({ name: '404', params: { resource: 'User' } })
+          })
+      },
+    },
+    props: (route) => ({ product: route.meta.tmp.product }),
+  },
   // {
   //   path: '/product/:key',
   //   name: 'details-product',

@@ -1,4 +1,5 @@
 import ProductService from '@src/services/ProductService.js'
+import store from '@state/store'
 export const getters = {
   productsAdded: (state) => {
     return state.products.filter((el) => {
@@ -125,6 +126,13 @@ export const actions = {
       commit('SET_PRODUCTS', products)
       return products
     } else return state.products
+  },
+  async fetchProduct({ commit, state, rootState }, { id }) {
+    if (state.products.length === 0) {
+      await store.dispatch('products/getProducts')
+    }
+    const matchedProduct = state.products.find((product) => product.id === id)
+    return Promise.resolve(matchedProduct)
   },
 }
 export const state = () => ({
