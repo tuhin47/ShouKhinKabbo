@@ -148,7 +148,7 @@ export default {
                     ><a href="#">{{ menu.title }}</a></li
                   >
                   <li><a href="#">Contact</a></li>
-                  <li>v@{{ version }}</li>
+                  <li> <strong>Ⓥ</strong> {{ version }} </li>
                 </ul>
               </nav>
             </div>
