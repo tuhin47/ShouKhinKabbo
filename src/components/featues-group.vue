@@ -1,7 +1,3 @@
-<script>
-export default {}
-</script>
-
 <template>
   <div class="features">
     <div class="container">
@@ -59,7 +55,3 @@ export default {}
     </div>
   </div>
 </template>
-
-<style lang="scss" module>
-@import '@design';
-</style>

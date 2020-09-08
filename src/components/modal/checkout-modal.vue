@@ -8,7 +8,7 @@
       :body-bg-variant="bodyBgVariant"
       :body-text-variant="bodyTextVariant"
     >
-      <b-container v-if="!isCheckoutSection" fluid>
+      <b-container v-if="!isCheckoutSection" id="order" fluid>
         <b-row class="mb-1 text-center">
           <b-col cols="3">Title</b-col>
           <b-col cols="3">Unit Price</b-col>
@@ -20,7 +20,8 @@
           <b-row class="mb-1">
             <b-col cols="4">{{ product.title }}</b-col>
             <b-col cols="2">{{ product.price }}</b-col>
-            <b-col cols="3">
+            <b-col hidden class="hide" cols="3">{{ product.quantity }}</b-col>
+            <b-col class="show" cols="3">
               <b-form-select
                 :value="product.quantity"
                 :options="[1, 2, 3, 4, 5, 6]"
@@ -53,7 +54,16 @@
               src="@public/images/messenger.svg"
               alt="https://www.flaticon.com/authors/freepik"/></div
         ></a>
-        <b-col cols="2"></b-col>
+        <b-col cols="1"></b-col>
+        <b-button
+          v-if="orderButton"
+          variant="success"
+          size="sm"
+          class="float-right"
+          onclick="copyOrders()"
+        >
+          Copy Orders
+        </b-button>
         <b-button
           variant="danger"
           size="sm"
@@ -63,7 +73,7 @@
           Clear
         </b-button>
         <b-button
-          variant="primary"
+          variant="dark"
           size="sm"
           class="float-right"
           @click="openModal = false"
@@ -78,6 +88,9 @@
 <script>
 import appConfig from '@src/app.config'
 import { mapGetters } from 'vuex'
+// import html2canvas from 'html2canvas'
+// import ClipboardItem from 'https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js'
+
 export default {
   name: 'Checkout',
 
@@ -91,7 +104,7 @@ export default {
       bodyTextVariant: 'dark',
       footerBgVariant: 'warning',
       footerTextVariant: 'dark',
-      modalTitle: 'Checkout',
+      modalTitle: 'Products',
       removeLabel: 'Remove from cart',
       cartEmptyLabel: 'Your cart is empty',
       closeLabel: 'Close',
@@ -104,6 +117,9 @@ export default {
       products: 'productsAdded',
       isCheckoutModalOpen: 'isCheckoutModalOpen',
     }),
+    orderButton() {
+      return this.products.length
+    },
     openModal: {
       get() {
         if (this.isCheckoutModalOpen) {

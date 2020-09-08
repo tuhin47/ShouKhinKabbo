@@ -44,6 +44,34 @@
   <body>
     <!-- This is where our app will be mounted. -->
     <div id="app"> </div>
+    <script src="	https://unpkg.com/html2canvas@1.0.0-rc.5/dist/html2canvas.js"></script>
+    <script>
+      function copyOrders() {
+        const dom = document.querySelector('#order')
+        dom.getElementsByClassName('hide').forEach((element) => {
+          element.removeAttribute('hidden')
+        })
+        dom.getElementsByClassName('show').forEach((element) => {
+          element.setAttribute('hidden', 'hidden')
+        })
+        const image = html2canvas(dom).then((canvas) =>
+          canvas.toBlob((blob) =>
+            navigator.clipboard.write([
+              new ClipboardItem({
+                'image/png': blob,
+              }),
+            ])
+          )
+        )
+        dom.getElementsByClassName('show').forEach((element) => {
+          element.removeAttribute('hidden')
+        })
+        dom.getElementsByClassName('hide').forEach((element) => {
+          element.setAttribute('hidden', 'hidden')
+        })
+        return image
+      }
+    </script>
     <!-- Built files will be auto injected here. -->
 
     <!-- Home -->
