@@ -33,64 +33,31 @@
             <td></td>
             <td>{{ product.price * product.quantity }} </td>
           </tr>
-          <!-- <a :href="`tel:${appConfig.mobile}`"
-            ><div
-              ><img
-                width="20px"
-                src="@public/images/phone.svg"
-                alt="https://www.flaticon.com/authors/freepik"/></div
-          ></a> -->
+
           <tr
             ><td colspan="2"></td>
             <td colspan="3"
               ><strong>{{ buyLabel }}</strong></td
             >
           </tr>
-          <!-- <a href="https://m.me/shoukhinkabbo" target="_blank"
-            ><div
-              ><img
-                width="20px"
-                src="@public/images/messenger.svg"
-                alt="https://www.flaticon.com/authors/freepik"/></div
-          ></a> -->
         </tbody>
       </table>
 
-      <!-- <b-container v-if="!isCheckoutSection" fluid>
-        <b-row class="mb-1 text-center">
-          <b-col cols="3">Title</b-col>
-          <b-col cols="3">Unit Price</b-col>
-          <b-col cols="3">Quantity</b-col>
-          <b-col>Total</b-col>
-        </b-row>
-        <hr />
-        <div id="order"
-          >
-          <div v-for="product in products" :key="product.id">
-            <b-row class="mb-1">
-              <b-col cols="4">{{ product.title }}</b-col>
-              <b-col cols="2">{{ product.price }}</b-col>
-              <b-col hidden class="hide" cols="3">{{ product.quantity }}</b-col>
-              <b-col class="show" cols="3">
-                <b-form-select
-                  :value="product.quantity"
-                  :options="[1, 2, 3, 4, 5, 6]"
-                  @change="changeQuantity($event, product)"
-                ></b-form-select>
-              </b-col>
-              <b-col cols="1"></b-col>
-              <b-col cols="1">{{ product.price * product.quantity }} </b-col>
-            </b-row>
-          </div>
-          </div
-        >
-      </b-container> -->
-
       <template v-slot:modal-footer>
-        <!-- <div class="w-100">
-          <p class="float-left">Modal Footer Content</p>
-
-        </div> -->
+        <a :href="`tel:${appConfig.mobile}`"
+          ><div
+            ><img
+              width="20px"
+              src="@public/images/phone.svg"
+              alt="https://www.flaticon.com/authors/freepik"/></div
+        ></a>
+        <a href="https://m.me/shoukhinkabbo" target="_blank"
+          ><div
+            ><img
+              width="20px"
+              src="@public/images/messenger.svg"
+              alt="https://www.flaticon.com/authors/freepik"/></div
+        ></a>
         <b-button
           v-if="orderButton"
           variant="success"
