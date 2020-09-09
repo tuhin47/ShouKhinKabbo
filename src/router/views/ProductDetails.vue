@@ -20,7 +20,7 @@ export default {
 
 <template>
   <Layout>
-    <PageTitle title="Product Details" />
+    <PageTitle title="পণ্যের বিবরণ" />
     <!-- Product -->
     <div class="container">
       <div class="row">

@@ -1,0 +1,15 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "command": "yarn vue-cli-service serve --port 3030",
+      "type": "shell",
+      "label": "dev",
+      "windows": {
+        "command": "ls"
+      }
+    }
+  ]
+}
