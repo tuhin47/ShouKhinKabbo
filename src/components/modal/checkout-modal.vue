@@ -8,7 +8,55 @@
       :body-bg-variant="bodyBgVariant"
       :body-text-variant="bodyTextVariant"
     >
-      <b-container v-if="!isCheckoutSection" id="order" fluid>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="order">
+          <tr v-for="product in products" :key="product.id">
+            <td>{{ product.title }}</td>
+            <td>{{ product.price }}</td>
+            <td class="show">
+              <b-form-select
+                :value="product.quantity"
+                :options="[1, 2, 3, 4, 5, 6]"
+                @change="changeQuantity($event, product)"
+              ></b-form-select>
+            </td>
+            <td hidden class="hide">{{ product.quantity }}</td>
+            <td></td>
+            <td>{{ product.price * product.quantity }} </td>
+          </tr>
+          <!-- <a :href="`tel:${appConfig.mobile}`"
+            ><div
+              ><img
+                width="20px"
+                src="@public/images/phone.svg"
+                alt="https://www.flaticon.com/authors/freepik"/></div
+          ></a> -->
+          <tr
+            ><td colspan="2"></td>
+            <td colspan="3"
+              ><strong>{{ buyLabel }}</strong></td
+            >
+          </tr>
+          <!-- <a href="https://m.me/shoukhinkabbo" target="_blank"
+            ><div
+              ><img
+                width="20px"
+                src="@public/images/messenger.svg"
+                alt="https://www.flaticon.com/authors/freepik"/></div
+          ></a> -->
+        </tbody>
+      </table>
+
+      <!-- <b-container v-if="!isCheckoutSection" fluid>
         <b-row class="mb-1 text-center">
           <b-col cols="3">Title</b-col>
           <b-col cols="3">Unit Price</b-col>
@@ -16,51 +64,39 @@
           <b-col>Total</b-col>
         </b-row>
         <hr />
-        <div v-for="product in products" :key="product.id">
-          <b-row class="mb-1">
-            <b-col cols="4">{{ product.title }}</b-col>
-            <b-col cols="2">{{ product.price }}</b-col>
-            <b-col hidden class="hide" cols="3">{{ product.quantity }}</b-col>
-            <b-col class="show" cols="3">
-              <b-form-select
-                :value="product.quantity"
-                :options="[1, 2, 3, 4, 5, 6]"
-                @change="changeQuantity($event, product)"
-              ></b-form-select>
-            </b-col>
-            <b-col cols="1"></b-col>
-            <b-col cols="1">{{ product.price * product.quantity }} </b-col>
-          </b-row>
-        </div>
-      </b-container>
+        <div id="order"
+          >
+          <div v-for="product in products" :key="product.id">
+            <b-row class="mb-1">
+              <b-col cols="4">{{ product.title }}</b-col>
+              <b-col cols="2">{{ product.price }}</b-col>
+              <b-col hidden class="hide" cols="3">{{ product.quantity }}</b-col>
+              <b-col class="show" cols="3">
+                <b-form-select
+                  :value="product.quantity"
+                  :options="[1, 2, 3, 4, 5, 6]"
+                  @change="changeQuantity($event, product)"
+                ></b-form-select>
+              </b-col>
+              <b-col cols="1"></b-col>
+              <b-col cols="1">{{ product.price * product.quantity }} </b-col>
+            </b-row>
+          </div>
+          </div
+        >
+      </b-container> -->
 
       <template v-slot:modal-footer>
         <!-- <div class="w-100">
           <p class="float-left">Modal Footer Content</p>
 
         </div> -->
-        <a :href="`tel:${appConfig.mobile}`"
-          ><div
-            ><img
-              width="20px"
-              src="@public/images/phone.svg"
-              alt="https://www.flaticon.com/authors/freepik"/></div
-        ></a>
-        <strong>{{ buyLabel }}</strong>
-        <a href="https://m.me/shoukhinkabbo" target="_blank"
-          ><div
-            ><img
-              width="20px"
-              src="@public/images/messenger.svg"
-              alt="https://www.flaticon.com/authors/freepik"/></div
-        ></a>
-        <b-col cols="1"></b-col>
         <b-button
           v-if="orderButton"
           variant="success"
           size="sm"
           class="float-right"
-          onclick="copyOrders()"
+          @click="copyOrders"
         >
           Copy Orders
         </b-button>
@@ -164,6 +200,30 @@ export default {
   },
 
   methods: {
+    copyOrders() {
+      const dom = document.querySelector('#order')
+      dom.getElementsByClassName('hide').forEach((element) => {
+        element.removeAttribute('hidden')
+      })
+      dom.getElementsByClassName('show').forEach((element) => {
+        element.setAttribute('hidden', 'hidden')
+      })
+      if (document.createRange && window.getSelection) {
+        const range = document.createRange()
+        const sel = window.getSelection()
+        sel.removeAllRanges()
+        range.selectNodeContents(dom)
+        sel.addRange(range)
+      }
+      document.execCommand('Copy')
+      dom.getElementsByClassName('show').forEach((element) => {
+        element.removeAttribute('hidden')
+      })
+      dom.getElementsByClassName('hide').forEach((element) => {
+        element.setAttribute('hidden', 'hidden')
+      })
+      // return image
+    },
     closeModal(reloadPage) {
       this.$store.commit('showCheckoutModal', false)
 
