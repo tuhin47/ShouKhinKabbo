@@ -34,6 +34,10 @@ export default {
 <template>
   <Layout>
     <PageTitle title="অর্ডার পেজ" />
-    <OrderTable :orders="productsAdded"></OrderTable>
+    <div class="d-flex justify-content-center">
+      <div class="table-responsive col-md-10">
+        <OrderTable :orders="productsAdded"></OrderTable>
+      </div>
+    </div>
   </Layout>
 </template>
