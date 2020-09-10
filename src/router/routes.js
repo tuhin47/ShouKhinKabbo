@@ -1,5 +1,4 @@
 import store from '@state/store'
-// import ProductDetails from '@views/ProductDetails.vue'
 export default [
   {
     path: '/',
@@ -8,8 +7,8 @@ export default [
   },
   {
     path: '/product/:id',
-    name: 'ProductDetails',
-    component: () => lazyLoadView(import('@views/ProductDetails.vue')),
+    name: 'product-details',
+    component: () => lazyLoadView(import('@views/product-details.vue')),
     meta: {
       tmp: {},
       beforeResolve(routeTo, routeFrom, next) {
@@ -26,28 +25,11 @@ export default [
     },
     props: (route) => ({ product: route.meta.tmp.product }),
   },
-  // {
-  //   path: '/product/:key',
-  //   name: 'details-product',
-  //   component: ProductDetails,
-  // },
-  // {
-  //   path: '/login',
-  //   name: 'login',
-  //   component: () => lazyLoadView(import('@views/login.vue')),
-  //   meta: {
-  //     beforeResolve(routeTo, routeFrom, next) {
-  //       // If the user is already logged in
-  //       if (store.getters['auth/loggedIn']) {
-  //         // Redirect to the home page instead
-  //         next({ name: 'home' })
-  //       } else {
-  //         // Continue to the login page
-  //         next()
-  //       }
-  //     },
-  //   },
-  // },
+  {
+    path: '/order',
+    name: 'place-order',
+    component: () => lazyLoadView(import('@views/place-order.vue')),
+  },
   // {
   //   path: '/profile',
   //   name: 'profile',

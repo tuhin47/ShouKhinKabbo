@@ -19,7 +19,7 @@
           </tr>
         </thead>
         <tbody id="order">
-          <tr v-for="product in products" :key="product.id">
+          <tr v-for="product in productsAdded" :key="product.id">
             <td>{{ product.title }}</td>
             <td>{{ product.price }}</td>
             <td class="show">
@@ -75,14 +75,16 @@
         >
           Clear
         </b-button>
-        <b-button
-          variant="dark"
-          size="sm"
-          class="float-right"
-          @click="openModal = false"
+        <router-link to="/order"
+          ><b-button
+            variant="dark"
+            size="sm"
+            class="float-right"
+            @click="orderClicked"
+          >
+            Order
+          </b-button></router-link
         >
-          Close
-        </b-button>
       </template>
     </b-modal>
   </div>
@@ -90,9 +92,7 @@
 
 <script>
 import appConfig from '@src/app.config'
-import { mapGetters } from 'vuex'
-// import html2canvas from 'html2canvas'
-// import ClipboardItem from 'https://cdn.jsdelivr.net/npm/clipboard@1/dist/clipboard.min.js'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Checkout',
@@ -100,7 +100,6 @@ export default {
   data() {
     return {
       appConfig: appConfig,
-      show: false,
       headerBgVariant: 'dark',
       headerTextVariant: 'light',
       bodyBgVariant: 'light',
@@ -117,49 +116,31 @@ export default {
 
   computed: {
     ...mapGetters('products', {
-      products: 'productsAdded',
+      productsAdded: 'productsAdded',
       isCheckoutModalOpen: 'isCheckoutModalOpen',
     }),
     orderButton() {
-      return this.products.length
+      return this.productsAdded.length
     },
     openModal: {
       get() {
-        if (this.isCheckoutModalOpen) {
-          return true
-        } else {
-          return false
-        }
+        return this.isCheckoutModalOpen
       },
       set(val) {
         this.$store.commit('products/showCheckoutModal', val)
       },
     },
     buyLabel() {
-      const totalProducts = this.products.length
-      const productsAdded = this.products
-      const pricesArray = []
+      const productsAdded = this.productsAdded
+      const finalPrice = this.getFinalPrice(productsAdded)
+      const productLength = productsAdded.length
       let productLabel = ''
-      let finalPrice = ''
-      let quantity = 1
-
-      productsAdded.forEach((product) => {
-        if (product.quantity >= 1) {
-          quantity = product.quantity
-        }
-
-        pricesArray.push(product.price * quantity) // get the price of every product added and multiply quantity
-      })
-
-      finalPrice = pricesArray.reduce((a, b) => a + b, 0) // sum the prices
-
-      if (totalProducts > 1) {
-        // set plural or singular
+      if (productLength > 1) {
         productLabel = 'types of products'
       } else {
         productLabel = 'product'
       }
-      return `Buy ${totalProducts} ${productLabel} at ${finalPrice} Taka`
+      return `Buy ${productLength} ${productLabel} at ${finalPrice} Taka`
     },
     isUserLoggedIn() {
       return this.$store.getters.isUserLoggedIn
@@ -167,6 +148,20 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      placeOrder: 'orders/placeOrder',
+    }),
+    getFinalPrice(productsAdded) {
+      const pricesArray = []
+      productsAdded.forEach((product) => {
+        pricesArray.push(product.price * product.quantity)
+      })
+      pricesArray.reduce((a, b) => a + b, 0)
+      return pricesArray.reduce((a, b) => a + b, 0)
+    },
+    orderClicked() {
+      this.openModal = false
+    },
     copyOrders() {
       const dom = document.querySelector('#order')
       dom.getElementsByClassName('hide').forEach((element) => {
