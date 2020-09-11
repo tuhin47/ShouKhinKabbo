@@ -32,7 +32,7 @@ export default {
       class="header_content d-flex flex-row align-items-center justify-content-start"
     >
       <div class="logo">
-        <a href="/">
+        <router-link to="/">
           <div class="d-flex flex-row align-items-center justify-content-start">
             <div
               ><img
@@ -43,7 +43,7 @@ export default {
             /></div>
             <div style="padding-left: 5px;"> {{ appConfig.title }}</div>
           </div>
-        </a>
+        </router-link>
       </div>
       <div class="hamburger" style="padding-right:15px"
         ><i class="fa fa-bars" aria-hidden="true" @click="toggleMenuBar"></i

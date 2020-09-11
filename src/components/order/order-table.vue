@@ -40,13 +40,6 @@ export default {
         <td class="hide">{{ product.quantity }}</td>
         <td>{{ product.price * product.quantity }} </td>
       </tr>
-
-      <!-- <tr
-            ><td colspan="2"></td>
-            <td colspan="3"
-              ><strong>{{ buyLabel }}</strong></td
-            >
-          </tr> -->
     </tbody>
   </table>
 </template>

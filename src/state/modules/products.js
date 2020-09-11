@@ -2,14 +2,27 @@ import ProductService from '@src/services/ProductService.js'
 import store from '@state/store'
 export const getters = {
   productsAdded: (state) => {
-    return state.products.filter((el) => {
-      return el.isAddedToCart
-    })
+    return productAddedList(state.products)
   },
   productsAddedToFavourite: (state) => {
     return state.products.filter((el) => {
       return el.isFavourite
     })
+  },
+  getAddedProductPrice: (state) => {
+    return getPriceOfProduct(state.products)
+  },
+  buyLabelOfAddedProducts: (state) => {
+    const productsAdded = state.productsAdded
+    const finalPrice = getPriceOfProduct(productsAdded)
+    const productLength = productsAdded ? productsAdded.length : 0
+    let productLabel = ''
+    if (productLength > 1) {
+      productLabel = 'types of products'
+    } else {
+      productLabel = 'product'
+    }
+    return `Buy ${productLength} ${productLabel} at ${finalPrice} Taka`
   },
   getProductById: (state) => (id) => {
     return state.products.find((product) => product.id === id)
@@ -150,3 +163,20 @@ export const state = () => ({
     openCheckoutModal: false,
   },
 })
+
+const getPriceOfProduct = function(products) {
+  if (!products || products.length === 0) return 0
+  const pricesArray = []
+  products
+    .filter((el) => el.isAddedToCart)
+    .forEach((product) => {
+      pricesArray.push(product.price * product.quantity)
+    })
+  pricesArray.reduce((a, b) => a + b, 0)
+  return pricesArray.reduce((a, b) => a + b, 0)
+}
+const productAddedList = function(products) {
+  return products.filter((el) => {
+    return el.isAddedToCart
+  })
+}

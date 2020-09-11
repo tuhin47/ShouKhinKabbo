@@ -92,7 +92,7 @@
 
 <script>
 import appConfig from '@src/app.config'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Checkout',
@@ -118,6 +118,7 @@ export default {
     ...mapGetters('products', {
       productsAdded: 'productsAdded',
       isCheckoutModalOpen: 'isCheckoutModalOpen',
+      buyLabel: 'buyLabelOfAddedProducts',
     }),
     orderButton() {
       return this.productsAdded.length
@@ -130,35 +131,9 @@ export default {
         this.$store.commit('products/showCheckoutModal', val)
       },
     },
-    buyLabel() {
-      const productsAdded = this.productsAdded
-      const finalPrice = this.getFinalPrice(productsAdded)
-      const productLength = productsAdded.length
-      let productLabel = ''
-      if (productLength > 1) {
-        productLabel = 'types of products'
-      } else {
-        productLabel = 'product'
-      }
-      return `Buy ${productLength} ${productLabel} at ${finalPrice} Taka`
-    },
-    isUserLoggedIn() {
-      return this.$store.getters.isUserLoggedIn
-    },
   },
 
   methods: {
-    ...mapActions({
-      placeOrder: 'orders/placeOrder',
-    }),
-    getFinalPrice(productsAdded) {
-      const pricesArray = []
-      productsAdded.forEach((product) => {
-        pricesArray.push(product.price * product.quantity)
-      })
-      pricesArray.reduce((a, b) => a + b, 0)
-      return pricesArray.reduce((a, b) => a + b, 0)
-    },
     orderClicked() {
       this.openModal = false
     },
@@ -186,13 +161,6 @@ export default {
       })
       // return image
     },
-    closeModal(reloadPage) {
-      this.$store.commit('showCheckoutModal', false)
-
-      if (reloadPage) {
-        window.location.reload()
-      }
-    },
     clearSelectedCharts() {
       this.$store.commit('products/clearSelectedCharts')
     },
@@ -201,25 +169,6 @@ export default {
         id: item.id,
         quantity: quantity,
       })
-    },
-    removeFromCart(id) {
-      const data = {
-        id: id,
-        status: false,
-      }
-      this.$store.commit('removeFromCart', id)
-      this.$store.commit('setAddedBtn', data)
-    },
-    onNextBtn() {
-      if (this.isUserLoggedIn) {
-        this.isCheckoutSection = true
-      } else {
-        this.$store.commit('showCheckoutModal', false)
-        this.$store.commit('showLoginModal', true)
-      }
-    },
-    onPrevBtn() {
-      this.isCheckoutSection = false
     },
   },
 }
