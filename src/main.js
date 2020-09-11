@@ -8,6 +8,7 @@ import router from '@router'
 import store from '@state/store'
 import App from './app.vue'
 import '@components/_globals'
+import vuetify from './plugins/vuetify'
 
 // Don't warn about using the dev version of Vue in development.
 Vue.config.productionTip = process.env.NODE_ENV === 'production'
@@ -20,6 +21,7 @@ if (process.env.VUE_APP_TEST === 'e2e') {
 const app = new Vue({
   router,
   store,
+  vuetify,
   render: (h) => h(App),
 }).$mount('#app')
 

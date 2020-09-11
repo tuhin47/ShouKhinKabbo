@@ -43,4 +43,5 @@ module.exports = {
       : // Proxy API endpoints a local mock API.
         { before: require('./tests/mock-api') }),
   },
+  transpileDependencies: ['vuetify'],
 }
