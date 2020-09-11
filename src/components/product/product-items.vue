@@ -49,23 +49,6 @@ export default {
 <template>
   <div class="products">
     <div class="container">
-      <!-- <div class="row page_nav_row">
-        <div class="col">
-          <div class="page_nav">
-            <ul
-              class="d-flex flex-row align-items-start justify-content-center"
-            >
-              <li
-                v-for="(menu, index) in getMenuBars"
-                :key="index"
-                style="font-size: x-large"
-                :class="{ active: menu.serial === activeMenu.serial }"
-                ><a href="#">{{ menu.title }}</a></li
-              >
-            </ul>
-          </div>
-        </div>
-      </div> -->
       <div class="row products_row">
         <!-- Product -->
         <Product

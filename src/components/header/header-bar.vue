@@ -1,13 +1,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
-import RightTopBar from './right-top-bar.vue'
-import NavItems from './main-nav-items.vue'
+
 export default {
-  components: {
-    NavItems,
-    RightTopBar,
-  },
   data() {
     return {
       appConfig,
@@ -15,47 +10,56 @@ export default {
   },
   computed: {
     ...mapGetters('menus', ['getMenuStateClass', 'getMenuBars']),
+    ...mapGetters('products', ['productsAdded']),
+    productsAddedLenght() {
+      return this.productsAdded.length
+    },
   },
   methods: {
     toggleMenuBar() {
       this.$store.dispatch('menus/togglemenu')
+    },
+    showCheckoutModal() {
+      this.$store.commit('products/showCheckoutModal', true)
     },
   },
 }
 </script>
 
 <template>
-  <!-- Header -->
-  <header :class="'header' + getMenuStateClass">
-    <div class="header_overlay"></div>
-    <div
-      class="header_content d-flex flex-row align-items-center justify-content-start"
-    >
-      <div class="logo">
-        <router-link to="/">
-          <div class="d-flex flex-row align-items-center justify-content-start">
-            <div
-              ><img
-                width="30"
-                class="rounded-circle"
-                src="@public/images/logo.png"
-                alt="logo"
-            /></div>
-            <div style="padding-left: 5px;"> {{ appConfig.title }}</div>
-          </div>
-        </router-link>
-      </div>
-      <div class="hamburger" style="padding-right:15px"
-        ><i class="fa fa-bars" aria-hidden="true" @click="toggleMenuBar"></i
-      ></div>
-      <NavItems />
-      <RightTopBar></RightTopBar>
-    </div>
-  </header>
-</template>
+  <div :class="'header' + getMenuStateClass">
+    <v-app-bar fixed color="white">
+      <!--<template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+          gradient="to top right, rgba(19,84,122,.5), rgba(128,208,199,.8)"
+        ></v-img>
+      </template>-->
 
-<style lang="scss" scoped>
-a:visited {
-  color: white;
-}
-</style>
+      <v-app-bar-nav-icon @click="toggleMenuBar"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>{{ appConfig.title }}</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+      <div class="user">
+        <a :href="`tel:${appConfig.mobile}`">
+          <div>
+            <img src="@public/images/phone.svg" />
+          </div>
+        </a>
+      </div>
+
+      <div class="user" @click="showCheckoutModal"
+        ><a href="#">
+          <div
+            ><img src="@public/images/cart.svg" />
+            <div>{{ productsAddedLenght ? productsAddedLenght : 0 }}</div>
+          </div></a
+        >
+      </div>
+      <!--<v-btn icon>
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>-->
+    </v-app-bar>
+  </div>
+</template>

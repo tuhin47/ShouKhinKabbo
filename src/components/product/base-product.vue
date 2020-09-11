@@ -1,8 +1,8 @@
 <script>
-import ProdcuctContent from './product-content.vue'
+import ProductContent from './product-content.vue'
 export default {
   components: {
-    ProdcuctContent,
+    ProductContent,
   },
   props: {
     product: {
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <template>
-  <div class="col-xl-4 col-md-6">
+  <div class="col-xl-4 col-md-4">
     <div class="product">
       <div class="product_image"
         ><img
@@ -24,7 +24,7 @@ export default {
           "
           alt=""
       /></div>
-      <ProdcuctContent :product="product" />
+      <ProductContent :product="product" />
     </div>
   </div>
 </template>

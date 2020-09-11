@@ -25,15 +25,16 @@ export default {
 
 <template>
   <div>
-    <div class="super_container">
+    <div>
       <Header />
       <div
         tabindex="0"
         :class="'super_container_inner' + getMenuStateClass"
         @focus="clickedOutSide"
       >
-        <div class="super_overlay"></div>
-        <slot />
+        <v-container>
+          <slot />
+        </v-container>
         <Footer />
       </div>
     </div>
