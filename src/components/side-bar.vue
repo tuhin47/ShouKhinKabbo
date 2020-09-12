@@ -15,7 +15,7 @@ export default {
         return this.drawerState
       },
       set(val) {
-        store.commit('menus/TOGGLE_MENU', val)
+        store.commit('menus/TOGGLE_MENU')
       },
     },
   },

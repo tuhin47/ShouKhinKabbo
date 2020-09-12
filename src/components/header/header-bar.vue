@@ -1,6 +1,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import appConfig from '@src/app.config'
+import store from '@state/store'
 
 export default {
   data() {
@@ -17,7 +18,7 @@ export default {
   },
   methods: {
     toggleMenuBar() {
-      this.$store.dispatch('menus/togglemenu')
+      store.commit('menus/TOGGLE_MENU')
     },
     showCheckoutModal() {
       this.$store.commit('products/showCheckoutModal', true)

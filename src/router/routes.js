@@ -6,6 +6,11 @@ export default [
     component: () => lazyLoadView(import('@views/demo.vue')),
   },
   {
+    path: '/home',
+    name: 'home',
+    component: () => lazyLoadView(import('@views/home.vue')),
+  },
+  {
     path: '/product/:id',
     name: 'product-details',
     component: () => lazyLoadView(import('@views/product-details.vue')),

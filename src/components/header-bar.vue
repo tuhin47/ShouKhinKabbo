@@ -4,7 +4,7 @@ export default {
   name: 'TopHeader',
   methods: {
     toggleNavIcon() {
-      store.commit('menus/TOGGLE_MENU', true)
+      store.commit('menus/TOGGLE_MENU')
     },
   },
 }

@@ -11,7 +11,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.$store.dispatch('menus/togglemenu')
+      this.$store.commit('menus/TOGGLE_MENU')
     },
   },
 }

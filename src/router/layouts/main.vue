@@ -16,7 +16,7 @@ export default {
   methods: {
     clickedOutSide() {
       if (this.getMenuState) {
-        this.$store.dispatch('menus/togglemenu')
+        this.$store.commit('menus/TOGGLE_MENU')
       }
     },
   },
