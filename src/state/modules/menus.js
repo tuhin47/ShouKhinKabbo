@@ -38,8 +38,8 @@ export const getters = {
 }
 
 export const mutations = {
-  TOGGLE_MENU(state) {
-    state.menuActive = !state.menuActive
+  TOGGLE_MENU(state, val) {
+    state.menuActive = val
   },
 }
 

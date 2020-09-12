@@ -4,8 +4,10 @@ import { mapGetters } from 'vuex'
 export default {
   data: () => ({
     items: [
-      { title: 'Home', icon: 'dashboard' },
-      { title: 'About', icon: 'question_answer' },
+      { title: 'Home', icon: 'fas fa-home' },
+      { title: 'Order', icon: 'fas fa-shipping-fast' },
+      { title: 'About', icon: 'far fa-address-card' },
+      { title: 'Contact', icon: 'fas fa-file-signature' },
     ],
   }),
   computed: {
@@ -15,7 +17,7 @@ export default {
         return this.drawerState
       },
       set(val) {
-        store.commit('menus/TOGGLE_MENU')
+        if (!val) store.commit('menus/TOGGLE_MENU', false)
       },
     },
   },
@@ -23,8 +25,8 @@ export default {
 </script>
 
 <template>
-  <v-navigation-drawer v-model="drawer" fixed app temporary>
-    <v-list-item>
+  <v-navigation-drawer v-model="drawer" fixed dark app temporary>
+    <v-list-item v-show="false">
       <v-list-item-avatar>
         <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
       </v-list-item-avatar>
@@ -36,7 +38,7 @@ export default {
 
     <v-divider></v-divider>
 
-    <v-list dense>
+    <v-list>
       <v-list-item v-for="item in items" :key="item.title" link>
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -47,8 +49,20 @@ export default {
         </v-list-item-content>
       </v-list-item>
     </v-list>
-    <v-footer class="justify-center pl-0" inset app>
+    <v-footer class="justify-center pl-0" dark inset app>
       <span>&copy; 2018</span>
     </v-footer>
   </v-navigation-drawer>
 </template>
+
+<style type="scss" scoped>
+/* stylelint-disable*/
+.theme--dark.v-footer,
+.theme--dark.v-navigation-drawer {
+  background-image: repeating-linear-gradient(
+    to top right,
+    rgba(100, 115, 201, 0.7),
+    rgba(25, 32, 72, 0.7)
+  );
+}
+</style>
