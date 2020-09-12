@@ -42,7 +42,7 @@ export default {
           background-color="orange"
           color="orange"
         ></v-rating>
-        <span class="title"> ${{ displayPrice }}</span>
+        <span class="title"> ${{ displayPrice }}</span> &nbsp;&nbsp;
         <del class=""> ${{ price }}</del>
       </div>
     </v-card-title>

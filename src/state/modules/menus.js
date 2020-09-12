@@ -38,13 +38,9 @@ export const getters = {
 }
 
 export const mutations = {
-  TOGGLE_MENU(state) {
-    state.menuActive = !state.menuActive
+  TOGGLE_MENU(state, value) {
+    state.menuActive = value
   },
 }
 
-export const actions = {
-  togglemenu({ commit }) {
-    commit('TOGGLE_MENU')
-  },
-}
+export const actions = {}
