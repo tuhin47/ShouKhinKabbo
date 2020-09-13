@@ -3,7 +3,7 @@ export default [
   {
     path: '/',
     name: 'demo',
-    component: () => lazyLoadView(import('@views/demo.vue')),
+    component: () => lazyLoadView(import('@views/main-content.vue')),
   },
   {
     path: '/home',

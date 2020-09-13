@@ -2,6 +2,7 @@
   <div>
     <b-modal
       v-model="openModal"
+      size="lg"
       :title="modalTitle"
       :header-bg-variant="footerBgVariant"
       :header-text-variant="headerTextVariant"
@@ -31,11 +32,11 @@
             </td>
             <td hidden class="hide">{{ product.quantity }}</td>
             <td></td>
-            <td>{{ product.price * product.quantity }} </td>
+            <td>{{ product.price * product.quantity }}</td>
           </tr>
 
-          <tr
-            ><td colspan="2"></td>
+          <tr>
+            <td colspan="2"></td>
             <td colspan="3"
               ><strong>{{ buyLabel }}</strong></td
             >
@@ -44,20 +45,22 @@
       </table>
 
       <template v-slot:modal-footer>
-        <a :href="`tel:${appConfig.mobile}`"
-          ><div
+        <a :href="`tel:${appConfig.mobile}`">
+          <div
             ><img
               width="20px"
               src="@public/images/phone.svg"
-              alt="https://www.flaticon.com/authors/freepik"/></div
-        ></a>
-        <a href="https://m.me/shoukhinkabbo" target="_blank"
-          ><div
+              alt="https://www.flaticon.com/authors/freepik"
+          /></div>
+        </a>
+        <a href="https://m.me/shoukhinkabbo" target="_blank">
+          <div
             ><img
               width="20px"
               src="@public/images/messenger.svg"
-              alt="https://www.flaticon.com/authors/freepik"/></div
-        ></a>
+              alt="https://www.flaticon.com/authors/freepik"
+          /></div>
+        </a>
         <b-button
           v-if="orderButton"
           variant="success"
@@ -75,16 +78,16 @@
         >
           Clear
         </b-button>
-        <router-link to="/order"
-          ><b-button
+        <router-link to="/order">
+          <b-button
             variant="dark"
             size="sm"
             class="float-right"
             @click="orderClicked"
           >
             Order
-          </b-button></router-link
-        >
+          </b-button>
+        </router-link>
       </template>
     </b-modal>
   </div>

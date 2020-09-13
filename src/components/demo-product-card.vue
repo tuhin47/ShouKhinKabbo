@@ -1,5 +1,6 @@
 <script>
 export default {
+  name: 'ProductCard',
   data() {
     return {
       name: 'Black Shoes for Men',

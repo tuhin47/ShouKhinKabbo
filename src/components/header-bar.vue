@@ -6,6 +6,9 @@ export default {
     toggleNavIcon() {
       store.commit('menus/TOGGLE_MENU', true)
     },
+    toggleCheckOut() {
+      store.commit('products/showCheckoutModal', true)
+    },
   },
 }
 </script>
@@ -42,7 +45,7 @@ export default {
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
-      <v-btn icon>
+      <v-btn icon @click="toggleCheckOut">
         <v-badge color="red" content="6">
           <v-icon> fas fa-cart-plus</v-icon>
         </v-badge>
@@ -51,9 +54,8 @@ export default {
       <v-btn icon>
         <v-icon>mdi-dots-vertical</v-icon>
       </v-btn>
-
       <template v-slot:extension>
-        <v-tabs right>
+        <v-tabs v-show="false" right>
           <v-tab>Tab 1</v-tab>
           <v-tab>Tab 2</v-tab>
           <v-tab>Tab 3</v-tab>
