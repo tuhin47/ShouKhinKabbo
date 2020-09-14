@@ -2,7 +2,7 @@ import store from '@state/store'
 export default [
   {
     path: '/',
-    name: 'demo',
+    name: 'main',
     component: () => lazyLoadView(import('@views/main-content.vue')),
   },
   {

@@ -1,25 +1,31 @@
 <script>
 import Layout from '@layouts/origin.vue'
-import ProductCard from '@components/demo-product-card.vue'
+// import ProductCard from '@components/demo-product-card.vue'
+import ProductItems from '@components/product/product-items.vue'
 
 export default {
   page: {
     title: 'Home',
     meta: [{ name: 'description', content: 'The Main Content page.' }],
   },
-  components: { Layout, ProductCard },
+  components: {
+    Layout,
+    // ProductCard ,
+    ProductItems,
+  },
 }
 </script>
 
 <template>
   <Layout>
-    <v-container>
-      <v-row>
+    <ProductItems />
+    <!--<v-container>
+      <v-row align="center" >
         <ProductCard />
         <ProductCard />
         <ProductCard />
         <ProductCard />
       </v-row>
-    </v-container>
+    </v-container>-->
   </Layout>
 </template>

@@ -118,8 +118,9 @@ export default {
   <v-data-table
     :headers="headers"
     :items="orders"
-    sort-by="title"
     class="elevation-1"
+    disable-pagination
+    disable-sort
   >
     <template v-slot:top>
       <v-toolbar flat color="white">

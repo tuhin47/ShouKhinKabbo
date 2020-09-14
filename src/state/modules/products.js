@@ -16,7 +16,7 @@ export const getters = {
     const productsAdded = state.productsAdded
     const finalPrice = getPriceOfProduct(productsAdded)
     const productLength = productsAdded ? productsAdded.length : 0
-    let productLabel = ''
+    let productLabel
     if (productLength > 1) {
       productLabel = 'types of products'
     } else {
