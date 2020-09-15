@@ -119,17 +119,19 @@ export default {
       <div
         class="text-right d-flex flex-row align-items-end justify-content-end"
       >
-        <select
-          v-if="!product.isAddedToCart"
-          :value="product.quantity"
-          style="margin: 12px 31px;"
-          class="col-md-2 custom-select"
-          @change="changeQuantity($event, product)"
-        >
-          <option v-for="index in 6" :key="index" :value="index">{{
-            index
-          }}</option>
-        </select>
+        <label>
+          <select
+            v-if="!product.isAddedToCart"
+            :value="product.quantity"
+            style="margin: 12px 31px;"
+            class="col-md-2 custom-select"
+            @change="changeQuantity($event, product)"
+          >
+            <option v-for="index in 6" :key="index" :value="index">{{
+              index
+            }}</option>
+          </select>
+        </label>
         <div
           style="border-top: 0"
           class="product_button product_cart text-center d-flex flex-column align-items-center justify-content-center"
@@ -149,7 +151,12 @@ export default {
 </template>
 
 <style type="scss" scoped>
-/* stylint-disbale */
+/* stylelint-disable */
+.product_buttons {
+  width: 100%;
+  height: 57px;
+}
+
 a:visited {
   color: #4a4a4a;
   text-decoration: none;
@@ -162,5 +169,9 @@ a:visited {
 }
 .productbuttons {
   margin-top: 21px;
+}
+.product_buttons {
+  width: 100%;
+  height: 57px;
 }
 </style>

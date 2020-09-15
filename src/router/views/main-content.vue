@@ -19,13 +19,5 @@ export default {
 <template>
   <Layout>
     <ProductItems />
-    <!--<v-container>
-      <v-row align="center" >
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-      </v-row>
-    </v-container>-->
   </Layout>
 </template>

@@ -47,15 +47,25 @@ export default {
 </script>
 
 <template>
-  <div class="products">
+  <div class="container">
+    <div class="row">
+      <Product
+        v-for="product in viewProducts"
+        :key="product.id"
+        :product="product"
+      />
+    </div>
+  </div>
+
+  <!-- <div class="products">
     <div class="container">
       <div class="row products_row">
-        <!-- Product -->
         <Product
           v-for="(product, index) in viewProducts"
           :key="index"
           :product="product"
         />
+
       </div>
       <div v-show="loadButton" class="row load_more_row">
         <div class="col">
@@ -65,7 +75,7 @@ export default {
         </div>
       </div>
     </div>
-  </div>
+  </div>-->
 </template>
 
 <style lang="scss" scoped>
@@ -81,7 +91,7 @@ export default {
     display: none;
   }
   .page_nav_row {
-    margin-top: 0px;
+    margin-top: 0;
   }
 }
 

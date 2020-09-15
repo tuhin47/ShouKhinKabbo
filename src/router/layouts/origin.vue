@@ -19,11 +19,9 @@ export default {
 <template>
   <v-app>
     <SideBar></SideBar>
-    <TopHeader></TopHeader>
     <v-main>
-      <v-container class="grey lighten-5" fluid>
-        <slot></slot>
-      </v-container>
+      <TopHeader></TopHeader>
+      <slot></slot>
     </v-main>
     <FooterBar />
     <CheckOut />
