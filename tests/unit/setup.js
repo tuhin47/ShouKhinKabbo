@@ -108,7 +108,7 @@ global.shallowMountView = (Component, options = {}) => {
       Layout: {
         functional: true,
         render(h, { slots }) {
-          return <div>{slots().default}</div>
+          return `<div>{slots().default}</div>`
         },
       },
       ...(options.stubs || {}),

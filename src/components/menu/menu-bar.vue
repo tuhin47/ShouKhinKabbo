@@ -84,7 +84,3 @@ export default {
     </div>
   </div>
 </template>
-
-<style lang="scss" module>
-@import '@design';
-</style>

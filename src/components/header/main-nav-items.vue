@@ -1,7 +1,3 @@
-<script>
-export default {}
-</script>
-
 <template>
   <nav class="main_nav">
     <ul class="d-flex flex-row align-items-start justify-content-start">
@@ -13,7 +9,3 @@ export default {}
     </ul>
   </nav>
 </template>
-
-<style lang="scss" module>
-@import '@design';
-</style>

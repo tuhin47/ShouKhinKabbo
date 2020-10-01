@@ -9,7 +9,7 @@ export default {
   },
   computed: {
     ...mapGetters('products', ['productsAdded']),
-    productsAddedLenght() {
+    productsAddedLength() {
       return this.productsAdded.length
     },
   },
@@ -48,13 +48,9 @@ export default {
           ><img
             src="@public/images/cart.svg"
             alt="https://www.flaticon.com/authors/freepik"
-          /><div>{{ productsAddedLenght ? productsAddedLenght : 0 }}</div></div
+          /><div>{{ productsAddedLength ? productsAddedLength : 0 }}</div></div
         ></a
       ></div
     >
   </div>
 </template>
-
-<style lang="scss" module>
-@import '@design';
-</style>
