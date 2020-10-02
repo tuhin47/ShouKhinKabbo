@@ -93,7 +93,7 @@ export default {
 </script>
 
 <template>
-  <div class="col-xl-4 col-md-4">
+  <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
     <div class="product">
       <div class="product_image "
         ><img
@@ -124,18 +124,16 @@ export default {
           </div>
           <div class="row justify-content-between">
             <div class="offset-5 col-3">
-              <label>
-                <select
-                  v-if="!product.isAddedToCart"
-                  :value="product.quantity"
-                  class="custom-select"
-                  @change="changeQuantity($event, product)"
-                >
-                  <option v-for="index in 6" :key="index" :value="index">{{
-                    index
-                  }}</option>
-                </select>
-              </label>
+              <select
+                v-if="!product.isAddedToCart"
+                :value="product.quantity"
+                class="custom-select"
+                @change="changeQuantity($event, product)"
+              >
+                <option v-for="index in 6" :key="index" :value="index">{{
+                  index
+                }}</option>
+              </select>
             </div>
             <div
               :class="[
@@ -214,7 +212,6 @@ export default {
   height: 100%;
 }
 .product_button {
-  margin-bottom: 0.6rem;
   margin-right: -0.25rem;
 }
 .productButtonPlus:hover {
