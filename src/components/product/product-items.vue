@@ -77,26 +77,3 @@ export default {
     </div>
   </div>-->
 </template>
-
-<style lang="scss" scoped>
-/* stylelint-disable */
-@media screen and (max-width: 700px) {
-  .page_nav ul li:not(:last-of-type)::after {
-    display: contents;
-  }
-}
-
-@media screen and (max-width: 350px) {
-  .col {
-    display: none;
-  }
-  .page_nav_row {
-    margin-top: 0;
-  }
-}
-
-.products {
-  padding-top: 0;
-  padding-bottom: 0;
-}
-</style>
