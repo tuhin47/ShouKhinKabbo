@@ -61,7 +61,7 @@
               alt="https://www.flaticon.com/authors/freepik"
           /></div>
         </a>
-        <b-button
+        <!-- <b-button
           v-if="orderButton"
           variant="success"
           size="sm"
@@ -69,7 +69,7 @@
           @click="copyOrders"
         >
           Copy Orders
-        </b-button>
+        </b-button>-->
         <b-button
           variant="danger"
           size="sm"
@@ -80,7 +80,7 @@
         </b-button>
         <router-link to="/order">
           <b-button
-            variant="dark"
+            variant="success"
             size="sm"
             class="float-right"
             @click="orderClicked"
