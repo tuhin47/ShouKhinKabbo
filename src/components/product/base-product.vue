@@ -130,20 +130,21 @@ export default {
                 class="custom-select"
                 @change="changeQuantity($event, product)"
               >
-                <option v-for="index in 6" :key="index" :value="index">{{
-                  index
-                }}</option>
+                <option v-for="index in 6" :key="index" :value="index"
+                  >{{ index }}
+                </option>
               </select>
             </div>
             <div
               :class="[
                 'col-4 product_button ',
-                { productButtonPlus: true },
-                { productButtonMinus: false },
+                { productButtonPlus: !product.isAddedToCart },
+                { productButtonMinus: product.isAddedToCart },
                 'text-center d-flex flex-column align-items-center justify-content-center',
               ]"
+              @click="cartButtonClicked"
             >
-              <v-badge v-if="true" color="green" content="+">
+              <v-badge v-if="!product.isAddedToCart" color="green" content="+">
                 <v-icon> fas fa-cart-plus</v-icon>
               </v-badge>
               <v-badge v-else color="red" content="-">
@@ -166,7 +167,6 @@ export default {
 }
 
 .product_button {
-  margin-bottom: 0.6rem;
   margin-right: -0.25rem;
 }
 
@@ -180,6 +180,7 @@ export default {
 
 .productButtonMinus:hover {
   background-color: #ff9e9e;
+  margin-bottom: -2.1rem;
 }
 
 .productButtonMinus:active {
