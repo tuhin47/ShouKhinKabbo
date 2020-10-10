@@ -113,6 +113,8 @@ export default {
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
                       v-model="editedItem.title"
+                      filled
+                      shaped
                       readonly
                       label="Product name"
                     ></v-text-field>
@@ -120,10 +122,13 @@ export default {
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
                       v-model="editedItem.price"
+                      filled
+                      shaped
                       readonly
                       label="Price"
                     ></v-text-field>
                   </v-col>
+
                   <v-col cols="12" sm="6" md="4">
                     <v-select
                       v-model="editedItem.quantity"
@@ -157,10 +162,3 @@ export default {
     </template>-->
   </v-data-table>
 </template>
-
-<style type="scss" scoped>
-/* stylelint-disable */
-.my-text-style.v-input--is-disabled.v-input__slot input {
-  color: red;
-}
-</style>
