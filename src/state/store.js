@@ -10,7 +10,7 @@ Vue.use(Vuex)
 
 const minutes =
   process.env.NODE_ENV !== 'production'
-    ? new Date(new Date().getTime() + (1 / 3) * 60 * 1000)
+    ? new Date(new Date().getTime() + (1 / 3) * 60 * 10000)
     : new Date(new Date().getTime() + 60 * 60 * 1000)
 const store = new Vuex.Store({
   modules,

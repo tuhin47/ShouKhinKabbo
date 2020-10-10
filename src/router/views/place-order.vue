@@ -3,7 +3,8 @@ import { mapGetters } from 'vuex'
 import Layout from '@layouts/origin.vue'
 // import PageTitle from '@components/page-title-bar.vue'
 import OrderTable from '@components/order/order-table.vue'
-// import InfoForm from '@components/order/info-form.vue'
+import InfoForm from '@components/order/info-form.vue'
+
 export default {
   page: {
     title: 'Place Order',
@@ -13,7 +14,7 @@ export default {
     Layout,
     // PageTitle,
     OrderTable,
-    // InfoForm
+    InfoForm,
   },
   computed: {
     ...mapGetters('products', {
@@ -39,7 +40,14 @@ export default {
 
 <template>
   <Layout>
-    <OrderTable :orders="productsAdded"></OrderTable>
+    <div class="container">
+      <div class="col-sm-12 col-md-8">
+        <OrderTable :orders="productsAdded"></OrderTable>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <InfoForm />
+      </div>
+    </div>
     <!--<PageTitle title="অর্ডার পেজ" />
     <div class="d-flex justify-content-center">
       <div class="table-responsive col-md-10">

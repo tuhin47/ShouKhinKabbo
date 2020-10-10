@@ -16,12 +16,11 @@ export default {
         sortable: false,
         value: 'title',
       },
-      { text: 'Base Price', value: 'price' },
-      { text: 'Quantity', value: 'quantity' },
-      { text: 'Total', value: 'price*quantity' },
-      { text: 'Actions', value: 'actions', sortable: false },
+      { text: 'Base Price', align: 'center', value: 'price' },
+      { text: 'Quantity', align: 'center', value: 'quantity' },
+      { text: 'Total', align: 'center', value: 'total' },
+      { text: 'Actions', align: 'center', value: 'actions', sortable: false },
     ],
-    desserts: [],
     editedIndex: -1,
     editedItem: {
       name: '',
@@ -41,7 +40,13 @@ export default {
 
   computed: {
     formTitle() {
-      return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
+      return this.editedIndex === -1 ? 'Edit Item' : 'Edit Item'
+    },
+    orderList() {
+      return this.orders.map((e) => ({
+        ...e,
+        total: e.price * e.quantity,
+      }))
     },
   },
 
@@ -51,47 +56,17 @@ export default {
     },
   },
 
-  created() {
-    this.initialize()
-  },
-
   methods: {
-    initialize() {
-      this.desserts = [
-        {
-          name: 'Frozen Yogurt',
-          calories: 159,
-          fat: 6.0,
-          carbs: 24,
-          protein: 4.0,
-        },
-        {
-          name: 'Ice cream sandwich',
-          calories: 237,
-          fat: 9.0,
-          carbs: 37,
-          protein: 4.3,
-        },
-        {
-          name: 'Eclair',
-          calories: 262,
-          fat: 16.0,
-          carbs: 23,
-          protein: 6.0,
-        },
-      ]
-    },
-
     editItem(item) {
-      this.editedIndex = this.desserts.indexOf(item)
+      this.editedIndex = this.orders.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
 
     deleteItem(item) {
-      const index = this.desserts.indexOf(item)
+      const index = this.orders.indexOf(item)
       confirm('Are you sure you want to delete this item?') &&
-        this.desserts.splice(index, 1)
+        this.orders.splice(index, 1)
     },
 
     close() {
@@ -104,9 +79,9 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        Object.assign(this.desserts[this.editedIndex], this.editedItem)
+        Object.assign(this.orders[this.editedIndex], this.editedItem)
       } else {
-        this.desserts.push(this.editedItem)
+        this.orders.push(this.editedItem)
       }
       this.close()
     },
@@ -117,10 +92,9 @@ export default {
 <template>
   <v-data-table
     :headers="headers"
-    :items="orders"
-    class="elevation-1"
-    disable-pagination
-    disable-sort
+    :items="orderList"
+    class="elevation-1 mytable"
+    :hide-default-footer="true"
   >
     <template v-slot:top>
       <v-toolbar flat color="white">
@@ -128,11 +102,6 @@ export default {
         <v-divider class="mx-4" inset vertical></v-divider>
         <v-spacer></v-spacer>
         <v-dialog v-model="dialog" max-width="500px">
-          <!--<template v-slot:activator="{ on, attrs }">
-                      <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"
-                        >New Item</v-btn
-                      >
-                    </template>-->
           <v-card>
             <v-card-title>
               <span class="headline">{{ formTitle }}</span>
@@ -143,34 +112,24 @@ export default {
                 <v-row>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
-                      v-model="editedItem.name"
+                      v-model="editedItem.title"
                       readonly
-                      label="Dessert name"
+                      label="Product name"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
                     <v-text-field
-                      v-model="editedItem.calories"
-                      label="Calories"
+                      v-model="editedItem.price"
+                      readonly
+                      label="Price"
                     ></v-text-field>
                   </v-col>
                   <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.fat"
-                      label="Fat (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.carbs"
-                      label="Carbs (g)"
-                    ></v-text-field>
-                  </v-col>
-                  <v-col cols="12" sm="6" md="4">
-                    <v-text-field
-                      v-model="editedItem.protein"
-                      label="Protein (g)"
-                    ></v-text-field>
+                    <v-select
+                      v-model="editedItem.quantity"
+                      :items="[1, 2, 3, 4, 5, 6]"
+                      label="Quantity"
+                    ></v-select>
                   </v-col>
                 </v-row>
               </v-container>
@@ -193,8 +152,15 @@ export default {
         mdi-delete
       </v-icon>
     </template>
-    <template v-slot:no-data>
+    <!--<template v-slot:no-data>
       <v-btn color="primary" @click="initialize">Reset</v-btn>
-    </template>
+    </template>-->
   </v-data-table>
 </template>
+
+<style type="scss" scoped>
+/* stylelint-disable */
+.my-text-style.v-input--is-disabled.v-input__slot input {
+  color: red;
+}
+</style>
