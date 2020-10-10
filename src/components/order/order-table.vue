@@ -9,7 +9,7 @@ export default {
   data: () => ({
     dialog: false,
     headers: [
-      { text: '#', value: 'index' },
+      { text: '#Product ID', value: 'id' },
       {
         text: 'Title',
         align: 'start',
@@ -22,20 +22,7 @@ export default {
       { text: 'Actions', align: 'center', value: 'actions', sortable: false },
     ],
     editedIndex: -1,
-    editedItem: {
-      name: '',
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
-    defaultItem: {
-      name: '',
-      calories: 0,
-      fat: 0,
-      carbs: 0,
-      protein: 0,
-    },
+    editedItem: {},
   }),
 
   computed: {
@@ -57,33 +44,28 @@ export default {
   },
 
   methods: {
+    changeQuantity() {
+      this.$store.commit('products/quantity', {
+        id: this.editedItem.id,
+        quantity: this.editedItem.quantity,
+      })
+      this.close()
+    },
     editItem(item) {
       this.editedIndex = this.orders.indexOf(item)
       this.editedItem = Object.assign({}, item)
       this.dialog = true
     },
-
-    deleteItem(item) {
-      const index = this.orders.indexOf(item)
-      confirm('Are you sure you want to delete this item?') &&
-        this.orders.splice(index, 1)
+    removeFromCart(id) {
+      const data = {
+        id: id,
+        status: false,
+      }
+      this.$store.commit('products/removeFromCart', id)
+      this.$store.commit('products/setAddedBtn', data)
     },
-
     close() {
       this.dialog = false
-      this.$nextTick(() => {
-        this.editedItem = Object.assign({}, this.defaultItem)
-        this.editedIndex = -1
-      })
-    },
-
-    save() {
-      if (this.editedIndex > -1) {
-        Object.assign(this.orders[this.editedIndex], this.editedItem)
-      } else {
-        this.orders.push(this.editedItem)
-      }
-      this.close()
     },
   },
 }
@@ -143,7 +125,9 @@ export default {
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-              <v-btn color="blue darken-1" text @click="save">Save</v-btn>
+              <v-btn color="blue darken-1" text @click="changeQuantity"
+                >Save</v-btn
+              >
             </v-card-actions>
           </v-card>
         </v-dialog>
@@ -153,7 +137,7 @@ export default {
       <v-icon small class="mr-2" @click="editItem(item)">
         mdi-pencil
       </v-icon>
-      <v-icon small @click="deleteItem(item)">
+      <v-icon small @click="removeFromCart(item.id)">
         mdi-delete
       </v-icon>
     </template>
