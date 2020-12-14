@@ -20,10 +20,7 @@ export default {
 
 <style lang="scss" module>
 @import '@design';
-
 .loadingIcon {
-  @extend %typography-xxlarge;
-
   display: block;
   margin: 0 auto;
 

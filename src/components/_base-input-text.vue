@@ -51,8 +51,6 @@ export default {
 @import '@design';
 
 .input {
-  @extend %typography-small;
-
   display: block;
   width: 100%;
   padding: $size-input-padding-vertical $size-input-padding-horizontal;
