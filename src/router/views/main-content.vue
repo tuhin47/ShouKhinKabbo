@@ -1,6 +1,5 @@
 <script>
 import Layout from '@layouts/origin.vue'
-// import ProductCard from '@components/demo-product-card.vue'
 import ProductItems from '@components/product/product-items.vue'
 
 export default {
@@ -10,7 +9,6 @@ export default {
   },
   components: {
     Layout,
-    // ProductCard ,
     ProductItems,
   },
 }

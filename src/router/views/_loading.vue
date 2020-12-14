@@ -1,5 +1,5 @@
 <script>
-import Layout from '@layouts/main.vue'
+import Layout from '@layouts/origin.vue'
 
 export default {
   page: {
@@ -18,7 +18,7 @@ export default {
   </Layout>
 </template>
 
-<style lang="scss" module>
+<style lang="scss">
 @import '@design';
 
 .loadingIcon {

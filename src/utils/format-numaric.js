@@ -1,4 +1,4 @@
-var finalEnlishToBanglaNumber = {
+const finalEnglishToBengaliNumber = {
   '0': '০',
   '1': '১',
   '2': '২',
@@ -12,12 +12,15 @@ var finalEnlishToBanglaNumber = {
 }
 export default function banglaNumeric(input) {
   input = String(input)
-  var output = []
-  for (var i = 0; i < input.length; ++i) {
+  const output = []
+  for (let i = 0; i < input.length; ++i) {
     if (
-      Object.prototype.hasOwnProperty.call(finalEnlishToBanglaNumber, input[i])
+      Object.prototype.hasOwnProperty.call(
+        finalEnglishToBengaliNumber,
+        input[i]
+      )
     ) {
-      output.push(finalEnlishToBanglaNumber[input[i]])
+      output.push(finalEnglishToBengaliNumber[input[i]])
     } else {
       output.push(input[i])
     }

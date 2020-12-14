@@ -1,7 +1,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import Layout from '@layouts/origin.vue'
-// import PageTitle from '@components/page-title-bar.vue'
 import OrderTable from '@components/order/order-table.vue'
 import InfoForm from '@components/order/info-form.vue'
 
@@ -12,7 +11,6 @@ export default {
   },
   components: {
     Layout,
-    // PageTitle,
     OrderTable,
     InfoForm,
   },
@@ -48,17 +46,5 @@ export default {
         <InfoForm />
       </div>
     </div>
-    <!--<PageTitle title="অর্ডার পেজ" />
-    <div class="d-flex justify-content-center">
-      <div class="table-responsive col-md-10">
-
-      </div>
-    </div>-->
-
-    <!-- <div class="d-flex justify-content-center">
-      <div class="col-md-6">
-        <InfoForm />
-      </div>
-    </div>-->
   </Layout>
 </template>
