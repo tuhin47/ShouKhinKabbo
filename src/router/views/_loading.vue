@@ -18,7 +18,7 @@ export default {
   </Layout>
 </template>
 
-<style lang="scss">
+<style lang="scss" module>
 @import '@design';
 
 .loadingIcon {
